@@ -13,9 +13,10 @@
 
 # Ignore all logfiles and tempfiles.
 /log/*
-/tmp/*
 !/log/.keep
-!/tmp/.keep
-
+/tmp
+/config/*
+!/config/locales
+!/config/routes.rb
 # Ignore Byebug command history file.
 .byebug_history

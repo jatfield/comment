@@ -4,12 +4,16 @@ class TopicsController < ApplicationController
   # GET /topics
   # GET /topics.json
   def index
-    @topics = Topic.all
+    @topics = Topic.all.includes(:user)
   end
 
   # GET /topics/1
   # GET /topics/1.json
   def show
+    params[:page] ||= 1
+    session[:posts_per_page] ||= 40
+    page = params[:page]
+    @posts = @topic.posts.order(number: :desc).page(page).per(50).includes(:user, :answer_to)
   end
 
   # GET /topics/new
@@ -69,6 +73,6 @@ class TopicsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def topic_params
-      params.require(:topic).permit(:name, :user_id)
+      params.require(:topic).permit(:name, :descripton, :user_id)
     end
 end

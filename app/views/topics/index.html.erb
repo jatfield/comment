@@ -1,24 +1,21 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Topics</h1>
-
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>User</th>
+      <th>Témák</th>
+      <th>Üzenetek</th>
+      <th>Utolsó üzenet</th>
+      <th>Utolsó név</th>
       <th colspan="3"></th>
     </tr>
   </thead>
-
   <tbody>
     <% @topics.each do |topic| %>
       <tr>
-        <td><%= topic.name %></td>
-        <td><%= topic.user %></td>
-        <td><%= link_to 'Show', topic %></td>
-        <td><%= link_to 'Edit', edit_topic_path(topic) %></td>
-        <td><%= link_to 'Destroy', topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to topic.name, topic %></td>
+        <td><%= topic.posts.size %></td>
+        <td><%= topic.last_post.try(:created_at_l) %></td>
+        <td><%= topic.last_post.try(:user).try(:username) %></td>
+        <td><%= link_to_if(is_admin?, 'Edit', edit_topic_path(topic)){} %></td>
       </tr>
     <% end %>
   </tbody>

@@ -9,9 +9,10 @@ gem 'pg'
 
 gem "paperclip"
 
-gem 'authlogic'
+gem 'authlogic', github: 'Photovisi/authlogic'
 
 gem 'tinymce-rails'
+gem 'tinymce-rails-langs'
 
 gem 'kaminari'
 

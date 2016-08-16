@@ -17,10 +17,10 @@
   <tbody>
     <% @posts.each do |post| %>
       <tr>
-        <td><%= post.full_text %></td>
-        <td><%= post.user %></td>
+        <td><%= raw post.full_text %></td>
+        <td><%= post.user.name %></td>
         <td><%= post.number %></td>
-        <td><%= post.topic %></td>
+        <td><%= post.topic.name %></td>
         <td><%= post.answer_to_id %></td>
         <td><%= link_to 'Show', post %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>

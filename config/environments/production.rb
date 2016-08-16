@@ -56,7 +56,16 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "szoljhozza_#{Rails.env}"
   config.action_mailer.perform_caching = false
-
+  config.action_mailer.default_url_options = { :host => "www.jorendben.hu" }
+  config.action_mailer.default_options = {from: 'noreply@jorendben.hu'}
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.zoho.com',
+    port:                 587,
+    user_name:            'noreply@jorendben.hu',
+    password:             '0SdDhZcXnfD6',
+    authentication:       'plain',
+    enable_starttls_auto: true  }
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false

@@ -1,0 +1,5 @@
+FactoryGirl.define do
+  factory :avatar do
+    user nil
+  end
+end

@@ -9,6 +9,22 @@
   </head>
 
   <body>
+
+    <p id="notice"><%= notice %></p>
+
     <%= yield %>
+    <br/>
+    <% if current_user %>
+      <%= link_to "#{current_user.username} adatlapja", current_user %>
+      <%= link_to_unless(is_admin?, "Admin be", admin_up_users_path) %>
+      <%= link_to "#{current_user.username} kijelentkezik", sign_out_path, method: :delete %>
+      <%= link_to "Többiek", users_path %><br/>
+      <%= form_tag posts_path, method: "get" do %>
+        <%= text_field_tag :search_term, nil, placeholder: "Keresett kifejezés" %>
+        <%= submit_tag "Keresés" %>
+      <% end %>
+    <% else %>
+      <%= link_to "Bejelentkezés", sign_in_path %>
+    <% end %>
   </body>
 </html>

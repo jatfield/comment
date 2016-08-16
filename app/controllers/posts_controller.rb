@@ -4,7 +4,19 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    params[:page] ||= 1
+    session[:posts_per_page] ||= 40
+    page = params[:page]
+    if params[:user_id]
+      @user = User.find(params[:user_id])
+      @posts = @user.posts.page(page).per(40).includes(:user, :answer_to, :topic)
+    elsif params[:search_term]
+      @posts = Post.search(params[:search_term]).page(page).per(40).includes(:user, :answer_to, :topic)
+    else
+      @posts = Post.page(page).per(40).includes(:user, :answer_to, :topic)
+ 
+    end
+  
   end
 
   # GET /posts/1
@@ -24,11 +36,15 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(post_params)
+#    @post = Post.new(post_params)
+    @topic = Topic.find(params[:topic_id])
+    @user = User.find(params[:user_id])
+    number = @topic.last_post.number + 1
+    @post = Post.new(full_text: params[:full_text], answer_to_id: params[:answer_to], number: number, topic: @topic, user: @user)
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.html { redirect_to @topic, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }

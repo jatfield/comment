@@ -11,6 +11,21 @@
 </p>
 
 <p>
+  <strong>Avatar:</strong>
+  <% if @user.avatar %>
+    <%= image_tag @user.avatar.picture.url %>
+    <%= link_to "Csere", edit_user_avatar_path(@user) %>
+  <% else %>
+    <%= link_to "Feltöltés", new_user_avatar_path(@user) %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Signature:</strong>
+  <%= @user.signature %>
+</p>
+
+<p>
   <strong>Name:</strong>
   <%= @user.name %>
 </p>
@@ -18,26 +33,6 @@
 <p>
   <strong>Active:</strong>
   <%= @user.active %>
-</p>
-
-<p>
-  <strong>Crypted password:</strong>
-  <%= @user.crypted_password %>
-</p>
-
-<p>
-  <strong>Password salt:</strong>
-  <%= @user.password_salt %>
-</p>
-
-<p>
-  <strong>Persistence token:</strong>
-  <%= @user.persistence_token %>
-</p>
-
-<p>
-  <strong>Perishable token:</strong>
-  <%= @user.perishable_token %>
 </p>
 
 <p>
@@ -70,5 +65,5 @@
   <%= @user.last_login_ip %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to_if(is_admin? || current_user == @user, 'Edit', edit_user_path(@user)){} %> |
 <%= link_to 'Back', users_path %>

@@ -9,16 +9,18 @@ class AvatarsController < ApplicationController
 
   # GET /avatars/1/edit
   def edit
+    @user = @avatar.user
   end
 
   # POST /avatars
   # POST /avatars.json
   def create
     @avatar = Avatar.new(avatar_params)
+    @user = @avatar.user
 
     respond_to do |format|
       if @avatar.save
-        format.html { redirect_to @avatar.user, notice: 'Avatar was successfully created.' }
+        format.html { redirect_to @avatar.user, notice: 'Avatar feltöltve.' }
         format.json { render :show, status: :created, location: @avatar }
       else
         format.html { render :new }
@@ -32,7 +34,7 @@ class AvatarsController < ApplicationController
   def update
     respond_to do |format|
       if @avatar.update(avatar_params)
-        format.html { redirect_to @avatar.user, notice: 'Avatar was successfully updated.' }
+        format.html { redirect_to @avatar.user, notice: 'Avatar cserélve.' }
         format.json { render :show, status: :ok, location: @avatar }
       else
         format.html { render :edit }
@@ -46,7 +48,7 @@ class AvatarsController < ApplicationController
   def destroy
     @avatar.destroy
     respond_to do |format|
-      format.html { redirect_to avatars_url, notice: 'Avatar was successfully destroyed.' }
+      format.html { redirect_to user_url(@avatar.user), notice: 'Avatar törölve.' }
       format.json { head :no_content }
     end
   end

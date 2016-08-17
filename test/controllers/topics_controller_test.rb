@@ -2,7 +2,8 @@ require 'test_helper'
 
 class TopicsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @topic = topics(:one)
+    @topic = create(:topic)
+    global_setup
   end
 
   test "should get index" do
@@ -44,5 +45,23 @@ class TopicsControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_redirected_to topics_url
+  end
+
+  test "should not get anything if not logged in" do
+    delete sign_out_url
+    get topics_url
+    assert_response :redirect
+    get new_topic_url
+    assert_response :redirect
+    post topics_url, params: { topic: { name: @topic.name, user_id: @topic.user_id } }
+    assert_response :redirect
+    get topic_url(@topic)
+    assert_response :redirect
+    get edit_topic_url(@topic)
+    assert_response :redirect
+    patch topic_url(@topic), params: { topic: { name: @topic.name, user_id: @topic.user_id } }
+    assert_response :redirect
+    delete topic_url(@topic)
+    assert_response :redirect
   end
 end

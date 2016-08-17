@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
-  resources :avatars
-  resources :uploads
-  resources :votes
-  resources :posts
+  resources :avatars, only: [:new, :create, :edit, :update, :destroy]
+#  resources :uploads
+#  resources :votes
+  resources :posts, only: [:index, :create, :edit, :update, :destroy]
   resources :topics do
     resources :posts 
   end

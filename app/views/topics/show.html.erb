@@ -24,7 +24,7 @@
     <div class = "answer_post">
       <%= "Válasz erre: #{p.answer_to.number}" if p.answer_to %>
       <div class = "post_chain">
-        <% p.answer_chain.each do |l| %>
+        <% p.question_chain.each do |l| %>
           <%= l.user.username %>|<%= l.created_at %>|<%= l.number %>
           <hr />
           <%= raw l.full_text %>

@@ -13,27 +13,27 @@
 
   <div class="field">
     <%= f.label :full_text %>
-    <%= f.text_area :full_text %>
+    <%= f.text_area :full_text, class: "tinymce" %>
+    <%= tinymce %>
   </div>
 
   <div class="field">
-    <%= f.label :user_id %>
-    <%= f.text_field :user_id %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
   </div>
 
   <div class="field">
     <%= f.label :number %>
-    <%= f.number_field :number %>
+    <%= post.number %>
   </div>
 
   <div class="field">
     <%= f.label :topic_id %>
-    <%= f.text_field :topic_id %>
+    <%= post.topic.name %>
   </div>
 
   <div class="field">
     <%= f.label :answer_to_id %>
-    <%= f.number_field :answer_to_id %>
+    <%= post.answer_to.try(:number) %>
   </div>
 
   <div class="actions">

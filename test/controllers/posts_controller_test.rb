@@ -2,7 +2,22 @@ require 'test_helper'
 
 class PostsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @post = posts(:one)
+    @post = create(:post)
+    global_setup
+  end
+
+  test "should not get anything if not logged in" do
+    delete sign_out_url
+    get posts_url
+    assert_response :redirect
+    post posts_url, params: { user_id: @post.user_id, topic_id: @post.topic_id, answer_to: @post.answer_to_id, full_text: @post.full_text }
+    assert_response :redirect
+    get edit_post_url(@post)
+    assert_response :redirect
+    patch post_url(@post), params: { post: { answer_to_id: @post.answer_to_id, full_text: @post.full_text, number: @post.number, topic_id: @post.topic_id, user_id: @post.user_id } }
+    assert_response :redirect
+    delete post_url(@post)
+    assert_response :redirect
   end
 
   test "should get index" do
@@ -10,22 +25,13 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get new" do
-    get new_post_url
-    assert_response :success
-  end
-
   test "should create post" do
+    @post2 = build(:post)
     assert_difference('Post.count') do
-      post posts_url, params: { post: { answer_to_id: @post.answer_to_id, full_text: @post.full_text, number: @post.number, topic_id: @post.topic_id, user_id: @post.user_id } }
+      post posts_url, params: { user_id: @post.user_id, topic_id: @post.topic_id, answer_to: @post2.answer_to_id, full_text: @post2.full_text }
     end
 
-    assert_redirected_to post_url(Post.last)
-  end
-
-  test "should show post" do
-    get post_url(@post)
-    assert_response :success
+    assert_redirected_to topic_url(@post.topic)
   end
 
   test "should get edit" do
@@ -35,7 +41,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 
   test "should update post" do
     patch post_url(@post), params: { post: { answer_to_id: @post.answer_to_id, full_text: @post.full_text, number: @post.number, topic_id: @post.topic_id, user_id: @post.user_id } }
-    assert_redirected_to post_url(@post)
+    assert_redirected_to topic_url(@post.topic)
   end
 
   test "should destroy post" do

@@ -14,7 +14,7 @@ class Post < ApplicationRecord
 
     if self.created_at.to_date === Date.today
       "Ma, #{self.created_at.strftime('%H:%M')}"
-    elsif self.created_at.to_date.advance(days: -1) === Date.today
+    elsif self.created_at.to_date === Date.today.advance(days: -1)
       "Tegnap, #{self.created_at.strftime('%H:%M')}"
     else
       I18n.l self.created_at
@@ -22,7 +22,7 @@ class Post < ApplicationRecord
 
   end
 
-  def answer_chain
+  def question_chain
 
     chain = []
     post = self

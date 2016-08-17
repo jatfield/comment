@@ -1,9 +1,11 @@
 FactoryGirl.define do
+
   factory :post do
+    user 
+    topic
     full_text "MyText"
-    user nil
-    number 1
-    topic nil
-    answer_to_id 1
+    sequence(:number) { |n| n }
+    answer_to nil 
   end
+
 end

@@ -1,3 +1,104 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.post {
+
+  border-top: 2px solid black;
+  width: 100%;
+  max-width: 1000px;
+  overflow: auto; 
+}
+
+.post_header {
+
+  width: 100%;
+  background-color: #7893c5;
+  color: white;
+  font-weight: bolder;
+  padding: 2px 0;
+  height: 22px;
+
+}
+
+.post_user {
+
+  width: 50%;
+  display: inline-block;
+
+}
+
+.post_time {
+
+  width: 28%;
+  display: inline-block;
+  text-align: right,
+
+}
+
+.post_chain .post_time {
+
+  width: 38%;
+
+}
+
+.post_answer {
+
+  width: 10%;
+  display: inline-block;
+  text-align: right,
+
+}
+
+.post_number {
+
+  width: 10%;
+  display: inline-block;
+  text-align: right,
+
+}
+
+.post_text {
+
+  width: 100%;
+  max-width: 800px;
+  padding: 5px;
+
+}
+
+.post_text a:link {
+
+  color: black;
+  text-decoration: underline;
+}
+
+.post_text a:visited {
+
+  color: grey;
+
+}
+
+.post_user_signature {
+
+  padding: 5px;
+  font-size: 75%;
+
+}
+
+.post_chain {
+
+  display: none;
+  position: relative;
+  left: 100px;
+  font-size: 75%;
+  background-color: #F8F4D7;
+  width: 80%;
+
+}
+
+.post_answer_to {
+
+  text-align: right;
+  font-size: 80%;
+
+
+}

@@ -17,7 +17,7 @@ hu:
 
   time:
     formats:
-      default: "%Y. %b %e., %H:%M"
+      default: "%Y. %b %d., %H:%M"
       short: "%b %e., %H:%M"
       long: "%Y. %B %e., %A, %H:%M"
     am: "de."
@@ -104,23 +104,29 @@ hu:
 
   activerecord:
     models:
-      folder: "Akta"
+      topic: "Téma"
+      avatar: "Avatar"
+      user: "Felhasználó"
+      post: "Hozzászólás"
     attributes:
-      folder:
-        start: "Kezdő"
-        order: "Határozatszám"
-        colleague_id: "Felszámoló"
-        registry: "Azonosító"
-        judge: "Bíró"
-        final: "Végelszámolás"
-        publish: "Közzététel"
-        finish: "Eljárás vége"
-        charge: "Büntetőfeljelentés"
-        mid: "Közbenső mérleg"
-        ending: "Zárómérleg"
-        file: "Iratanyag leadva"
-        court_id: "Bíróság"
-        firm_id: "Cég"
+      topic:
+        name: "Cím"
+        description: "Leírás"
+      avatar:
+        picture: "Kép"
+      user:
+        username: "Felhasználónév"
+        name: "Név"
+        signature: "Aláírás"
+        email: "E-mail cím"
+        active: "Aktív?"
+        password: "Jelszó"
+        password_confirmation: "Jelszó megerősítése"
+      post:
+        full_text: "Szöveg"
+        number: "Sorszám"
+        topic_id: "Téma"
+        answer_to_id: "Válasz erre"
     errors:
       template:
         header:

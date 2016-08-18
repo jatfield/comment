@@ -1,37 +1,20 @@
-<h2><%= link_to "Fórum", topics_path %> >> <%= @topic.name %></h2>
-<h3><%= @topic.description %></h3>
-<hr />
-<%= form_tag topic_posts_path(@topic), method: 'post' do %>
-  <h2>Hozzászólás:</h2>
-  <%= hidden_field_tag :answer_to, params[:answer_to_id] %>  
-  <%= hidden_field_tag :user_id, current_user.id %>  
-  <%= text_area_tag :full_text, nil, class: "tinymce" %>
-  <%= tinymce %>
-  <%= submit_tag 'Mehet!', :name => nil %>
-<% end %>
-
-<hr />
-<%= paginate @posts %>
-
-<hr />
-<% @posts.each do |p| %>
-  <%= link_to p.user.username, p.user %>|<%= p.created_at %> | <%= link_to "Válasz", topic_path(@topic, answer_to_id: p.id, page: params[:page]) %> | <%= p.number %> | <%= link_to_if(is_admin? || current_user == p.user, "Szerkesztés", edit_post_path(p)){} %>
-  <hr />
-
-  <%= raw p.full_text %>
-  <hr />
-  <% if p.answer_to %>
-    <div class = "answer_post">
-      <%= "Válasz erre: #{p.answer_to.number}" if p.answer_to %>
-      <div class = "post_chain">
-        <% p.question_chain.each do |l| %>
-          <%= l.user.username %>|<%= l.created_at %>|<%= l.number %>
-          <hr />
-          <%= raw l.full_text %>
-          <hr />
-        <% end %>
-      </div>
-    </div>
-    <hr />
+<div class = "topic_description">
+  <%= @topic.description %>
+</p>
+</div>
+<div class = "form_container">
+  <%= form_tag topic_posts_path(@topic), method: 'post' do %>
+    <h2>Hozzászólás:</h2>
+    <%= hidden_field_tag :answer_to, params[:answer_to_id] %>  
+    <%= hidden_field_tag :user_id, current_user.id %>  
+    <%= text_area_tag :full_text, nil, class: "tinymce" %>
+    <%= tinymce %>
+    <%= submit_tag 'Mehet!', :name => nil %>
   <% end %>
-<% end %>
+</div>
+
+<%= paginate @posts %>
+ 
+<div class="topic_posts">
+  <%= render partial: "/posts/posts" %>
+</div>

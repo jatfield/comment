@@ -1,0 +1,57 @@
+<% @posts.each do |p| %>
+  <div class="post">
+    <div class="post_header">
+      <span class = "post_user"> 
+        <% if p.user.avatar %>
+          <%= link_to image_tag(p.user.avatar.picture.url, class:"avatar", alt:"#{p.user.username}"), p.user %>
+        <% else %>
+          <%= link_to p.user.username, p.user %>
+        <% end %>
+      </span> 
+      <span class = "post_time"> 
+        <%= p.created_at_l %>
+      </span> 
+      <span class = "post_answer"> 
+        <%= link_to "Válasz", topic_path(p.topic, answer_to_id: p.id) %>
+      </span> 
+      <span class = "post_number"> 
+        <%= link_to_if(is_admin? || current_user == p.user, image_tag("edit", class: "button"), edit_post_path(p)){} %>#<%= p.number %>
+      </span> 
+    </div>
+    <div class = "post_text">
+      <%= raw p.full_text %>
+    </div>
+    <p class = "post_user_signature">
+      <%= p.user.signature %>
+    </p>
+    <% if p.answer_to %>
+      <div class = "answer_post">
+        <p class = "post_answer_to">
+          <%= "Válasz erre: #{p.answer_to.number}" if p.answer_to %>
+        </p>
+        <div class = "post_chain">
+          <% p.question_chain.each do |l| %>
+            <div class="post_header">
+              <span class = "post_user"> 
+                <% if l.user.avatar %>
+                  <%= link_to image_tag(l.user.avatar.picture.url, class:"avatar", alt:"#{l.user.username}"), l.user %>
+                  <% else %>
+                    <%= link_to l.user.username, l.user %>
+                <% end %>
+              </span> 
+              <span class = "post_time"> 
+                <%= l.created_at_l %>
+              </span> 
+              <span class = "post_number"> 
+                #<%= l.number %>
+              </span> 
+            </div>
+            <div class = "post_text">
+              <%= raw l.full_text %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

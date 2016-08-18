@@ -1,12 +1,93 @@
 // Place all the styles related to the topics controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.post_chain {
+.topic_headings {
 
-  display: none;
-  position: relative;
-  left: 100px;
-  width: 700px;
-  background-color: pink;
+  width: 100%;
+  margin: 4px 0;
+  font-size: 120%;
+  font-family: "Times New Roman";
+  font-weight: bolder;
+}
 
+.topic_list {
+
+  width: 100%;
+
+}
+
+.topic_list a:link {
+
+  color:black;
+
+}
+
+.topic_list a:visited {
+
+  color:black;
+
+}
+
+.topic_list_element {
+
+  margin: 2px 0;
+  background-color: #F0F0F0;
+  padding: 2px;
+
+}
+.topic_title {
+
+  width: 50%;
+  display: inline-block;
+}
+
+.topic_messages {
+
+  width: 10%;
+  display: inline-block;
+  text-align: right,
+
+}
+
+.topic_last_message {
+
+  width: 20%;
+  display: inline-block;
+  text-align: right,
+
+}
+
+.topic_last_poster {
+
+  width: 15%;
+  display: inline-block;
+  text-align: right,
+
+}
+
+.topic_headings .topic_title {
+  text-align: center,
+}
+
+.topic_headings .topic_messages {
+
+  text-align: center,
+
+}
+
+.topic_headings .topic_last_message {
+
+  width: 20%;
+  display: inline-block;
+  text-align: center,
+
+}
+
+.topic_headings .topic_last_poster {
+
+  text-align: center,
+}
+.topic_posts {
+
+  padding: 10px 0;
 }

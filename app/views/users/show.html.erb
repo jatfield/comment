@@ -1,69 +1,64 @@
-<p id="notice"><%= notice %></p>
+<h3><%= @user.username %><%= link_to_if(is_admin? || current_user == @user, image_tag("edit", class:"button"), edit_user_path(@user)){} %> </h3>
+
 
 <p>
-  <strong>Email:</strong>
+
+  <strong>E-mail:</strong>
   <%= @user.email %>
-</p>
-
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
 </p>
 
 <p>
   <strong>Avatar:</strong>
   <% if @user.avatar %>
     <%= image_tag @user.avatar.picture.url %>
-    <%= link_to "Csere", edit_user_avatar_path(@user) %>
+    <%= link_to_if(is_admin? || current_user == @user, image_tag("edit", class: "button"), edit_avatar_path(@user.avatar, user_id: @user.id)) %>
   <% else %>
-    <%= link_to "Feltöltés", new_user_avatar_path(@user) %>
+    <%= link_to_if(is_admin? || current_user == @user, image_tag("add", class: "button"), new_user_avatar_path(@user)) %>
   <% end %>
 </p>
 
 <p>
-  <strong>Signature:</strong>
+  <strong>Aláírás:</strong>
   <%= @user.signature %>
 </p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Név:</strong>
   <%= @user.name %>
 </p>
 
 <p>
-  <strong>Active:</strong>
+  <strong>Aktív?</strong>
   <%= @user.active %>
 </p>
 
 <p>
-  <strong>Login count:</strong>
+  <strong>Bejelntkezések száma:</strong>
   <%= @user.login_count %>
 </p>
 
 <p>
-  <strong>Last request at:</strong>
+  <strong>Utolsó aktivitás:</strong>
   <%= @user.last_request_at %>
 </p>
 
 <p>
-  <strong>Current login at:</strong>
+  <strong>Aktuális bejelentkezés időpontja:</strong>
   <%= @user.current_login_at %>
 </p>
 
 <p>
-  <strong>Last login at:</strong>
+  <strong>Utolsó bejelentkezés időpontja:</strong>
   <%= @user.last_login_at %>
 </p>
 
 <p>
-  <strong>Current login ip:</strong>
+  <strong>Jelenlegi IP:</strong>
   <%= @user.current_login_ip %>
 </p>
 
 <p>
-  <strong>Last login ip:</strong>
+  <strong>Utolsó IP:</strong>
   <%= @user.last_login_ip %>
 </p>
 
-<%= link_to_if(is_admin? || current_user == @user, 'Edit', edit_user_path(@user)){} %> |
-<%= link_to 'Back', users_path %>

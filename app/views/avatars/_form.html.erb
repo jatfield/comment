@@ -1,7 +1,7 @@
 <%= form_for(avatar) do |f| %>
   <% if avatar.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(avatar.errors.count, "error") %> prohibited this avatar from being saved:</h2>
+      <h2><%= avatar.errors.count %> hiba miatt nem menthető:</h2>
 
       <ul>
       <% avatar.errors.full_messages.each do |message| %>
@@ -19,6 +19,6 @@
   <%= f.hidden_field :user_id, value: @user.id %>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Mentés" %>
   </div>
 <% end %>

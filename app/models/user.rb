@@ -7,6 +7,10 @@ class User < ApplicationRecord
 
   scope :active, -> { where(active: true) }
 
+  def self.find_by_activated_user(username)
+    self.find_by_username_and_active(username, true)
+  end
+
   has_many :posts
   has_many :votes
   has_one :avatar

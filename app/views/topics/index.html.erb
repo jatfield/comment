@@ -1,26 +1,18 @@
-<table>
-  <thead>
-    <tr>
-      <th>Témák</th>
-      <th>Üzenetek</th>
-      <th>Utolsó üzenet</th>
-      <th>Utolsó név</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @topics.each do |topic| %>
-      <tr>
-        <td><%= link_to topic.name, topic %></td>
-        <td><%= topic.posts.size %></td>
-        <td><%= topic.last_post.try(:created_at_l) %></td>
-        <td><%= topic.last_post.try(:user).try(:username) %></td>
-        <td><%= link_to_if(is_admin?, 'Edit', edit_topic_path(topic)){} %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class = "topic_headings">
+  <span class = "topic_title">Témák <%= link_to image_tag("add", class: "button"), new_topic_path %></span>
+  <span class = "topic_messages">Üzenetek</span>
+  <span class = "topic_last_message">Utolsó üzenet</span>
+  <span class = "topic_last_poster">Utolsó név</span>
+</div>
+<div class = "topic_list">
+  <% @topics.each do |topic| %>
+    <div class = "topic_list_element">
+      <span class = "topic_title"><%= link_to topic.name, topic %><%= link_to_if(is_admin?, image_tag("edit", class: "button"), edit_topic_path(topic), target: '_blank'){} %></span>
+      <span class = "topic_messages"><%= topic.posts.size %> db.</span>
+      <span class = "topic_last_message"><%= topic.last_post.try(:created_at_l) %></span>
+      <span class = "topic_last_poster"><%= link_to(topic.last_post.user.username, topic.last_post.user, target: '_blank') if topic.last_post %></span>
+    </div>
+  <% end %>
+</div>
 
-<br>
 
-<%= link_to 'New Topic', new_topic_path %>

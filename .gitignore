@@ -15,8 +15,5 @@
 /log/*
 !/log/.keep
 /tmp
-/config/*
-!/config/locales
-!/config/routes.rb
 # Ignore Byebug command history file.
 .byebug_history

@@ -1,0 +1,14 @@
+toolbar:
+  - bold italic underline strikethrough blockquote | undo redo | paste link image media
+plugins:
+  - link
+  - paste
+  - image
+  - media
+menubar: false
+language: "hu_HU"
+max_width : 800
+min_width : 300
+image_description: false
+media_poster: false
+media_alt_source: false

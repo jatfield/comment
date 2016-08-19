@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
 
   belongs_to :user
-  belongs_to :topic
+  belongs_to :topic, touch: true
   belongs_to :answer_to, class_name: "Post"
   has_many :answers, class_name: "Post", primary_key: "answer_to_id"
   has_many :votes

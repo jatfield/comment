@@ -42,15 +42,14 @@ p.centered {
 
 a:link {
   
-  color: white;
   text-decoration: none;
 
 }
 
 a:visited {
 
-  color: white;
   text-decoration: none;
+  color: black;
 
 }
 
@@ -58,12 +57,10 @@ a:hover {
 
   background-color: inherit;
   text-decoration: none;
-
+  color: black;
 }
 
 a:active {
-
-
 
 }
 
@@ -156,6 +153,56 @@ img.avatar {
   font-weight: bolder;
 }
 
+
+a:link.menu {
+  
+  text-decoration: none;
+  color: white;
+  display: inline-block;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 2px;
+
+}
+
+a:visited.menu {
+
+  text-decoration: none;
+  color: white;
+
+}
+
+a:hover.menu {
+
+  background-color: inherit;
+  text-decoration: none;
+  color: white;
+
+}
+
+a:active.menu {
+
+}
+
+.search_form_container {
+
+  width: 100%;
+  max-width: 250px;
+  margin: 0 auto;
+
+}
+
+.page_title {
+
+  color: white;
+  display: inline-block;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 2px;
+
+
+}
+
 .form_container {
 
   width: 100%;
@@ -170,23 +217,6 @@ img.avatar {
 
 }
 
-.pagination a:link {
-
-  color: black;
-
-}
-
-table a:link {
-
-  color: black;
-
-}
-
-table a:visited {
-
-  color: black;
-
-}
 
 .pagination .current {
 

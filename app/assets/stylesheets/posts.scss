@@ -20,6 +20,18 @@
 
 }
 
+.post_header a:link {
+
+  color: white;
+
+}
+
+.post_header a:visited {
+
+  color: white;
+
+}
+
 .post_user {
 
   width: 50%;
@@ -59,9 +71,20 @@
 
 .post_text {
 
-  width: 100%;
-  max-width: 800px;
   padding: 5px;
+  background-color: #F0F0F0;
+
+}
+
+.post_text p {
+
+  max-width: 800px;
+
+}
+
+p.archived_comment {
+
+  color: #292421;
 
 }
 
@@ -69,6 +92,7 @@
 
   color: black;
   text-decoration: underline;
+
 }
 
 .post_text a:visited {
@@ -81,6 +105,7 @@
 
   padding: 5px;
   font-size: 75%;
+  background-color: #F0F0F0;
 
 }
 
@@ -90,7 +115,6 @@
   position: relative;
   left: 100px;
   font-size: 75%;
-  background-color: #F8F4D7;
   width: 80%;
 
 }

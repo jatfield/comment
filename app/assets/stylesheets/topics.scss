@@ -4,27 +4,16 @@
 .topic_headings {
 
   width: 100%;
-  margin: 4px 0;
   font-size: 120%;
   font-family: "Times New Roman";
   font-weight: bolder;
+  border: 2px solid black;
+  padding: 10px 0;
 }
 
 .topic_list {
 
   width: 100%;
-
-}
-
-.topic_list a:link {
-
-  color:black;
-
-}
-
-.topic_list a:visited {
-
-  color:black;
 
 }
 

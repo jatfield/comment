@@ -13,7 +13,7 @@
     <div id = "header">
       <div id = "top_menu">
         <p class = "centered">
-          <%= link_to "Szólj hozzá!", root_path %><%= " >> #{@page_title}" if @page_title %>
+          <%= link_to "szólj hozzá", root_path, class:"menu" %><span class="page_title">>></span><span class="page_title"><%= @page_title if @page_title %></span>
         </p>
       </div>
     </div>
@@ -27,19 +27,19 @@
       <div id = "bottom_menu">
         <p class = "centered">
           <% if current_user %>
-            <%= link_to "#{current_user.username} adatlapja", current_user %>
-            <%= link_to_unless(is_admin?, "Admin be", admin_up_users_path) %>
-            <%= link_to "#{current_user.username} kijelentkezik", sign_out_path, method: :delete %>
-            <%= link_to "Többiek", users_path %>
+            <%= link_to "#{current_user.username} adatlapja", current_user, class:"menu" %>
+            <%= link_to "többiek", users_path, class:"menu" %>
+            <%= link_to "kijelentkezés", sign_out_path, method: :delete, class:"menu" %>
+            <%= link_to_unless(is_admin?, "admin be", admin_up_users_path, class:"menu") %>
         </p>
-          <div class = "form_container"> 
+          <div class = "search_form_container"> 
             <%= form_tag posts_path, method: "get" do %>
-              <%= text_field_tag :search_term, nil, placeholder: "Keresett kifejezés" %>
+              <%= text_field_tag :search_term, nil, placeholder: "Keresett kifejezés", class:"menu" %>
               <%= submit_tag "Keresés" %>
             <% end %>
           <% else %>
-            <%= link_to "Bejelentkezés", sign_in_path %>
-            <%= link_to "Elfelejtett jelszó", forgotten_password_users_path %>
+            <%= link_to "Bejelentkezés", sign_in_path, class:"menu" %>
+            <%= link_to "Elfelejtett jelszó", forgotten_password_users_path, class:"menu" %>
           <% end %>
         </div>
       </div>

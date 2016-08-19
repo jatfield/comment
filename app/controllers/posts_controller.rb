@@ -9,11 +9,11 @@ class PostsController < ApplicationController
     page = params[:page]
     if params[:user_id]
       @user = User.find(params[:user_id])
-      @posts = @user.posts.page(page).per(40).includes(:user, :answer_to, :topic)
+      @posts = @user.posts.order(created_at: :desc).page(page).per(40).includes(:user, :answer_to, :topic)
     elsif params[:search_term]
-      @posts = Post.search(params[:search_term]).page(page).per(40).includes(:user, :answer_to, :topic)
+      @posts = Post.search(params[:search_term]).order(created_at: :desc).page(page).per(40).includes(:user, :answer_to, :topic)
     else
-      @posts = Post.page(page).per(40).includes(:user, :answer_to, :topic)
+      @posts = Post.order(created_at: :desc).page(page).per(40).includes(:user, :answer_to, :topic)
  
     end
   

@@ -50,7 +50,7 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1.json
   def update
     respond_to do |format|
-      if @post.update(post_params)
+      if @post.update(post_params.except!(:user_id))
         format.html { redirect_to @post.topic, notice: 'Hozzászólás módosítva.' }
         format.json { render :show, status: :ok, location: @post }
       else

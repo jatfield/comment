@@ -47,7 +47,7 @@ class TopicsController < ApplicationController
   # PATCH/PUT /topics/1.json
   def update
     respond_to do |format|
-      if @topic.update(topic_params)
+      if @topic.update(topic_params.except!(:user_id))
         format.html { redirect_to @topic, notice: 'Téma módosítva.' }
         format.json { render :show, status: :ok, location: @topic }
       else

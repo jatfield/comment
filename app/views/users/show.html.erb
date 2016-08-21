@@ -1,4 +1,4 @@
-<h3><%= @user.username %><%= link_to_if(is_admin? || current_user == @user, image_tag("edit", class:"button"), edit_user_path(@user)){} %> </h3>
+<h3><%= @user.username %><%= link_to_if(is_admin? || current_user == @user, image_tag("edit.png", class:"button"), edit_user_path(@user)){} %> </h3>
 
 
 <p>
@@ -11,9 +11,9 @@
   <strong>Avatar:</strong>
   <% if @user.avatar %>
     <%= image_tag @user.avatar.picture.url %>
-    <%= link_to_if(is_admin? || current_user == @user, image_tag("edit", class: "button"), edit_avatar_path(@user.avatar, user_id: @user.id)) %>
+    <%= link_to_if(is_admin? || current_user == @user, image_tag("edit.png", class: "button"), edit_avatar_path(@user.avatar, user_id: @user.id)) %>
   <% else %>
-    <%= link_to_if(is_admin? || current_user == @user, image_tag("add", class: "button"), new_user_avatar_path(@user)) %>
+    <%= link_to_if(is_admin? || current_user == @user, image_tag("add.png", class: "button"), new_user_avatar_path(@user)) %>
   <% end %>
 </p>
 

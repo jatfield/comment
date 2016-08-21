@@ -1,5 +1,5 @@
 <div class = "topic_headings">
-  <span class = "topic_title">Témák <%= link_to image_tag("add", class: "button"), new_topic_path %></span>
+  <span class = "topic_title">Témák <%= link_to image_tag("add.png", class: "button"), new_topic_path %></span>
   <span class = "topic_messages">Üzenetek</span>
   <span class = "topic_last_message">Utolsó üzenet</span>
   <span class = "topic_last_poster">Utolsó név</span>
@@ -7,7 +7,7 @@
 <div class = "topic_list">
   <% @topics.each do |topic| %>
     <div class = "topic_list_element">
-      <span class = "topic_title"><%= link_to topic.name, topic %><%= link_to_if(is_admin?, image_tag("edit", class: "button"), edit_topic_path(topic), target: '_blank'){} %></span>
+      <span class = "topic_title"><%= link_to topic.name, topic %><%= link_to_if(is_admin?, image_tag("edist.png", class: "button"), edit_topic_path(topic), target: '_blank'){} %></span>
       <span class = "topic_messages"><%= topic.posts.size %> db.</span>
       <span class = "topic_last_message"><%= topic.last_post.try(:created_at_l) %></span>
       <span class = "topic_last_poster"><%= link_to(topic.last_post.user.username, topic.last_post.user, target: '_blank') if topic.last_post %></span>

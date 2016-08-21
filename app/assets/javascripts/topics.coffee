@@ -2,11 +2,9 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-`document.addEventListener("turbolinks:load", function(){
+`$(document).ready(function(){
   $(".answer_post").on('touchstart click', function(){
-    console.log("Rákattintták, he!");    
+    console.log("Rákattintottál, he!");    
     $("> .post_chain", this).toggle();  
   });       
-  tinymce.remove();
-  tinymce.init({selector:'textarea'}); 
 });`

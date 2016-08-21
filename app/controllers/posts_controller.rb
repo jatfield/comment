@@ -32,7 +32,7 @@ class PostsController < ApplicationController
 #    @post = Post.new(post_params)
     @topic = Topic.find(params[:topic_id])
     @user = User.find(params[:user_id])
-    number = @topic.last_post.number + 1
+    @topic.last_post ? number = @topic.last_post.number + 1 : number = 1
     @post = Post.new(full_text: params[:full_text], answer_to_id: params[:answer_to], number: number, topic: @topic, user: @user)
 
     respond_to do |format|

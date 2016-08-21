@@ -15,7 +15,7 @@
         <%= link_to "Válasz", topic_path(p.topic, answer_to_id: p.id) %>
       </span> 
       <span class = "post_number"> 
-        <%= link_to_if(is_admin? || current_user == p.user, image_tag("edit", class: "button"), edit_post_path(p)){} %>#<%= p.number %>
+        <%= link_to_if(is_admin? || current_user == p.user, image_tag("edit.png", class: "button"), edit_post_path(p)){} %>#<%= p.number %>
       </span> 
     </div>
     <div class = "post_text">

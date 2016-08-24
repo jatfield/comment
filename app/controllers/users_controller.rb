@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :set_user_using_perishable_token, only: [:reset_password ]
+  before_action :set_perishable_token_expiry, only: [:reset_password, :send_password_reset_link]
   skip_before_action :require_login, only: [:forgotten_password, :send_password_reset_link, :reset_password]
   # GET /users
   # GET /users.json
@@ -70,8 +70,8 @@ class UsersController < ApplicationController
     @user = User.active.find_by_username(params[:username])
     if @user
       @user.reset_perishable_token!
-      UserMailer.password_reset_mail(@user.id).deliver_now
-      flash[:notice] = "Elküldtem az jelszóvisszaállító e-mailt a megadott felhasználónak"
+      UserMailer.password_reset_mail(@user.id, @expiry).deliver_now
+      flash[:notice] = "Elküldtem a jelszóvisszaállító e-mailt a megadott felhasználó címére (#{@user.email})"
       redirect_to sign_in_path
     else
       flash[:notice] = "Inaktív, vagy nem létező felhasználó"
@@ -81,6 +81,8 @@ class UsersController < ApplicationController
 
   def reset_password
 
+    @user = User.active.find_using_perishable_token(params[:token], @expiry)
+    redirect_to root_path, notice: "Nem találom a felhasználót" unless @user
     @user.password = params[:password]
     @user.password_confirmation = params[:password_confirmation]
     if @user.save
@@ -105,9 +107,8 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 
-    def set_user_using_perishable_token
-      @user = User.find_using_perishable_token(params[:token])
-      redirect_to root_path, notice: "Nem találom a felhasználót" unless @user
+    def set_perishable_token_expiry
+     @expiry = 12.hours
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params

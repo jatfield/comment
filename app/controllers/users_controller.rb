@@ -96,7 +96,11 @@ class UsersController < ApplicationController
 
   def admin_up
 
-    session[:is_admin] = true
+    if session[:is_admin] == true
+      session[:is_admin] = false
+    else
+      session[:is_admin] = true
+    end
     redirect_back(fallback_location: root_path)
 
   end

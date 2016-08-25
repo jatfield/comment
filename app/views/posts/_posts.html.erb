@@ -3,9 +3,9 @@
     <div class="post_header">
       <span class = "post_user"> 
         <% if p.user.avatar %>
-          <%= link_to image_tag(p.user.avatar.picture.url, class:"avatar", alt:"#{p.user.username}"), p.user %>
+          <span class ="post_avatar"><%= link_to image_tag(p.user.avatar.picture.url, class:"avatar", alt:"#{p.user.username}"), p.user %></span>
         <% else %>
-          <%= link_to p.user.username, p.user %>
+          <span class ="post_username"><%= link_to p.user.username, p.user %></span>
         <% end %>
       </span> 
       <span class = "post_time"> 

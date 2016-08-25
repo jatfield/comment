@@ -94,12 +94,6 @@ img.button {
 
 }
 
-img.avatar {
-
-  height: 20px;
-
-}
-
 #header {
  
   position: absolute;
@@ -173,9 +167,6 @@ a:link.menu {
   text-decoration: none;
   color: white;
   display: inline-block;
-  border: 2px solid white;
-  border-radius: 5px;
-  padding: 2px 6px;
 
 }
 
@@ -210,10 +201,6 @@ a:active.menu {
 
   color: white;
   display: inline-block;
-  border: 2px solid white;
-  border-radius: 5px;
-  padding: 2px;
-
 
 }
 

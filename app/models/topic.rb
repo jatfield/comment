@@ -3,7 +3,7 @@ class Topic < ApplicationRecord
   belongs_to :user
   has_many :posts
 
-  validates :user, :name, presence: true
+  validates :name, presence: true
 
   def last_post
 

@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 `$(document).ready(function(){
-  $(".answer_post").on('touchstart click', function(){
+  $(".answer_post").click(function(){
     console.log("Rákattintottál, he!");    
     $("> .post_chain", this).toggle();  
   });       

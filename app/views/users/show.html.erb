@@ -61,4 +61,8 @@
   <strong>Utolsó IP:</strong>
   <%= @user.last_login_ip %>
 </p>
+<p>
+  <strong>Hozzászólások:</strong>
+  <%= link_to "#{@user.posts.size} db.", posts_path(user_id: @user.id) %>
+</p>
 

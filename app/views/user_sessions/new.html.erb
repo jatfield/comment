@@ -1,7 +1,7 @@
 <%= form_for @user_session do |f| %>
   <% if @user_session.errors.any? %>
     <div id="error_explanation">
-      <h2><%= @user_session.errors.count %>ba a bejelentkezési kísérlettel:</h2>
+      <h2><%= @user_session.errors.count %> hiba a bejelentkezési kísérlettel:</h2>
 
       <ul>
       <% @user_session.errors.full_messages.each do |message| %>

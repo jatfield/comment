@@ -9,7 +9,7 @@ skip_before_action :require_login, except: :destroy
   def create
     @user_session = UserSession.new(user_session_params)
     @user_session.remember_me = true
-    @user_session.username.strip!
+    @user_session.username.strip! if @user_session.username
     if @user_session.save
 #      flash[:notice] = "Bejelentkezés sikeres"
       redirect_to root_path

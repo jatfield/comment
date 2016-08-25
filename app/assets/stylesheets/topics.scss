@@ -24,10 +24,18 @@
   padding: 2px;
 
 }
+
 .topic_title {
 
   width: 50%;
   display: inline-block;
+}
+
+.topic_description {
+  
+  padding: 10px;
+  text-align: center;
+  
 }
 
 .topic_messages {
@@ -79,4 +87,21 @@
 .topic_posts {
 
   padding: 10px 0;
+}
+
+.post_form_container {
+
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  min-height: 240px;
+  background-color: #7893c5;
+}
+
+.post_form_container p {
+
+  text-align: center;
+  color: white;
+  padding: 5px;
+  font-weight: bolder;
 }

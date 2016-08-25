@@ -2,9 +2,9 @@
   <%= @topic.description %>
 </p>
 </div>
-<div class = "form_container">
+<div class = "post_form_container">
   <%= form_tag topic_posts_path(@topic), method: 'post' do %>
-    <h2>Hozzászólás:</h2>
+    <p>Hozzászólás:</p>
     <%= hidden_field_tag :answer_to, params[:answer_to_id] %>  
     <%= hidden_field_tag :user_id, current_user.id %>  
     <%= text_area_tag :full_text, nil, class: "tinymce" %>

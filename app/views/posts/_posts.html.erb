@@ -27,7 +27,7 @@
     <% if p.answer_to %>
       <div class = "answer_post">
         <p class = "post_answer_to">
-          <%= "Válasz erre: #{p.answer_to.number}" if p.answer_to %>
+          <%= "Válasz erre: ##{p.answer_to.number}" if p.answer_to %>
         </p>
         <div class = "post_chain">
           <% p.question_chain.each do |l| %>

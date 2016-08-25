@@ -11,7 +11,7 @@ skip_before_action :require_login, except: :destroy
     @user_session.remember_me = true
     @user_session.username.strip!
     if @user_session.save
-      flash[:notice] = "Bejelentkezés sikeres"
+#      flash[:notice] = "Bejelentkezés sikeres"
       redirect_to root_path
     else
       render :new
@@ -21,7 +21,7 @@ skip_before_action :require_login, except: :destroy
   def destroy
     current_user_session.destroy
     reset_session
-    flash[:notice] = "Kijelentkezett"
+#    flash[:notice] = "Kijelentkezett"
     redirect_to root_path
   end
 

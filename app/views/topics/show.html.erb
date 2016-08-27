@@ -1,6 +1,8 @@
 <div class = "topic_description">
-  <%= @topic.description %>
-</p>
+  <p>
+    <%= @topic.description %>
+  </p>
+  <%= render "level_forecast" %>
 </div>
 <div class = "post_form_container">
   <%= form_tag topic_posts_path(@topic), method: 'post' do %>

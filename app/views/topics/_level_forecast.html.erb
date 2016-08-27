@@ -1,0 +1,12 @@
+<table class ="level_forecast">
+  <tr>
+    <% @times.each do |t| %>
+      <th><%= t %></th>
+    <% end %>
+  </tr>
+  <tr>
+    <% @levels.each do |l| %>
+      <td><%= l %></td>
+    <% end %>
+  </tr>
+</table>

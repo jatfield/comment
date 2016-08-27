@@ -10,6 +10,7 @@ class TopicsController < ApplicationController
   # GET /topics/1
   # GET /topics/1.json
   def show
+    load_forecast if @topic.id == 40
     @page_title = @topic.name
     params[:page] ||= 1
     session[:posts_per_page] ||= 40
@@ -72,7 +73,24 @@ class TopicsController < ApplicationController
     def set_topic
       @topic = Topic.find(params[:id])
     end
-
+    
+    def load_forecast
+      @times = []
+      @levels = []
+        forecast = Nokogiri::HTML(open("http://www.hydroinfo.hu/Html/hidelo/tisza_graf.php", read_timeout: 5))
+        tiszabecs = forecast.at_css('map')
+        levels_with_times = []
+        tiszabecs.css('area')[-25,23].each do |t|
+          levels_with_times << t['title']
+        end
+        levels_with_times.values_at(0,2,3,6,7,10,11,14,15,18,19).each do |l|
+          shortened_time = l.split(',')[0].split('.')
+          shortened_time.shift
+             
+          @times << shortened_time.join('.')
+          @levels << l.split(',')[1].split[0]
+        end
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def topic_params
       params.require(:topic).permit(:name, :description, :user_id)

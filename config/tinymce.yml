@@ -6,6 +6,7 @@ plugins:
   - image
   - media
 menubar: false
+statusbar: false
 language: "hu_HU"
 max_width : 800
 min_width : 300

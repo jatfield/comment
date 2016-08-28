@@ -37,7 +37,7 @@ class Post < ApplicationRecord
 
   def self.search(search_term)
  
-    search_term.blank? ? all : where("full_text LIKE ?", "%#{search_term}%")
+    search_term.blank? ? all : where("full_text ILIKE ?", "%#{search_term}%")
 
   end
 

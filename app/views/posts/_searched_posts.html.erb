@@ -9,7 +9,7 @@
         <% end %>
       </span> 
       <span class = "post_time"> 
-        <%= p.created_at_l %>
+        <%= p.topic.name.truncate(20, separator: ' ') %>, <%= p.created_at_l %>
       </span> 
       <span class = "post_answer"> 
         <%= link_to "Válasz", topic_path(p.topic, answer_to_id: p.id) %>

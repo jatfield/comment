@@ -1,6 +1,9 @@
 <% if @times %>
 <table class ="level_forecast">
   <tr>
+    <th colspan="11">Vízállás-előrejelzés: Tiszabecs (<%= link_to "Forrás","http://www.hydroinfo.hu/Html/hidelo/tisza_graf.php", target:"_blank" %>)</th>
+  </tr>
+  <tr>
     <% @times.each do |t| %>
       <th><%= t %></th>
     <% end %>

@@ -16,6 +16,8 @@ class Post < ApplicationRecord
       "Ma, #{self.created_at.strftime('%H:%M')}"
     elsif self.created_at.to_date === Date.today.advance(days: -1)
       "Tegnap, #{self.created_at.strftime('%H:%M')}"
+    elsif self.created_at.to_date === Date.today.advance(days: -2)
+      "Tegnapelőtt, #{self.created_at.strftime('%H:%M')}"
     else
       I18n.l self.created_at
     end

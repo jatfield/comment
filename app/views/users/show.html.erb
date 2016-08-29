@@ -64,10 +64,13 @@
   <strong>Hozzászólások:</strong>
   <%= link_to "#{@user.posts.size} db.", posts_path(user_id: @user.id) %>
 </p>
-<% if current_user == @current_user %>
+<% if current_user == @user %>
  
 <p>
-  <strong>Fontméret:</strong> <%= link_to_unless(session[:font_size] == "120%", "120%", set_custom_vars_users_path(font_size: "120%")) %> / <%= link_to_unless(session[:font_size] == "100%", "100%", set_custom_vars_users_path(font_size: "100%"))%> / <%= link_to_unless(session[:font_size] == "90%", "90%", set_custom_vars_users_path(font_size: "90%"))%><br/>
+  <strong>Fontméret:</strong><br/> 
+    <% 1.upto(1000) do |i| %>
+      <%= link_to_unless(session[:font_size] == "#{i}%", "#{i}%", set_custom_vars_users_path(font_size: "#{i}%")) %><br/>
+    <% end %> 
 </p>
 <p>
   <strong>Hozzászólások/oldal:</strong> 

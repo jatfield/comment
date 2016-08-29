@@ -37,7 +37,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @topic, notice: 'Hozzászólás mentve.' }
+        format.html { redirect_to @topic }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }

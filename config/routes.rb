@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       post "reset_password" 
       get "forgotten_password" 
       get "admin_up" 
+      get "set_custom_vars" 
     end
   end
 

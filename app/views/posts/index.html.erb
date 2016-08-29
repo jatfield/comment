@@ -3,4 +3,6 @@
 <% else %>
 <h3>Találatok a "<%= params[:search_term]%>" kifejezésre</h3>
 <% end %>
+<%= paginate @posts %>
 <%= render partial: "searched_posts" %>
+<%= paginate @posts %>

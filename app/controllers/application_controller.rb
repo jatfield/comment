@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_user_session, :current_user, :is_admin?
-  before_action :require_login
+  before_action :require_login, :set_font_size
 private 
 
   def current_user_session
@@ -23,6 +23,12 @@ private
        flash[:notice] = "Bejelentkezés szükséges"
       redirect_to sign_in_url
     end
+  end
+  
+  def set_font_size
+
+    @font_size = session[:font_size] || "120%"
+
   end
 
 end

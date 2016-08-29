@@ -2,7 +2,6 @@
 
 
 <p>
-
   <strong>E-mail:</strong>
   <%= @user.email %>
 </p>
@@ -65,4 +64,18 @@
   <strong>Hozzászólások:</strong>
   <%= link_to "#{@user.posts.size} db.", posts_path(user_id: @user.id) %>
 </p>
+<% if current_user == @current_user %>
+ 
+<p>
+  <strong>Fontméret:</strong> <%= link_to_unless(session[:font_size] == "120%", "120%", set_custom_vars_users_path(font_size: "120%")) %> / <%= link_to_unless(session[:font_size] == "100%", "100%", set_custom_vars_users_path(font_size: "100%"))%> / <%= link_to_unless(session[:font_size] == "90%", "90%", set_custom_vars_users_path(font_size: "90%"))%><br/>
+</p>
+<p>
+  <strong>Hozzászólások/oldal:</strong> 
+  <%= form_tag set_custom_vars_users_path, method: "get" do %>
+    <%= number_field_tag(:posts_per_page, session[:posts_per_page] || 40, in: 10...100, step: 10) %>
+    <%= submit_tag "Mehet" %>
+  <% end %> 
+</p>
+
+<% end %>
 

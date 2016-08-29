@@ -105,6 +105,17 @@ class UsersController < ApplicationController
 
   end
 
+  def set_custom_vars
+
+    if params[:font_size]
+      session[:font_size] = params[:font_size]
+    end
+    if params[:posts_per_page]
+      session[:posts_per_page] = params[:posts_per_page]
+    end
+    redirect_to current_user
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user

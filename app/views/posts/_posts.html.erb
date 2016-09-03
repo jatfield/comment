@@ -9,7 +9,7 @@
         <% end %>
       </span> 
       <span class = "post_time"> 
-        <%= p.created_at_l %>
+        <%= day_beforize(p.created_at) %>
       </span> 
       <span class = "post_answer"> 
         <%= link_to "Válasz", "#", title: "#{p.id}", class: "post_answer_link" %>
@@ -40,7 +40,7 @@
                 <% end %>
               </span> 
               <span class = "post_time"> 
-                <%= l.created_at_l %>
+                <%= day_beforize(l.created_at) %>
               </span> 
               <span class = "post_number"> 
                 #<%= l.number %>

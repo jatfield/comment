@@ -5,7 +5,8 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all.order(last_request_at: :asc)
+    @page_title = "Userlista"
+    @users = User.all.order(active: :desc, last_request_at: :desc)
   end
 
   # GET /users/1

@@ -1,16 +1,11 @@
-<h1>Felhasználók <%= link_to_if(is_admin?, image_tag("add.png", class: "button"), new_user_path){} %></h1>
-
 <table>
   <thead>
     <tr>
       <th>Felhasználónév</th>
       <th>E-mail</th>
       <th>Név</th>
-      <th>Aktív?</th>
       <th>Bejelentkezések száma</th>
       <th>Utolsó tevékenység ideje</th>
-      <th>Aktuális bejelentkezés</th>
-      <th>Utolsó bejelentkezés</th>
       <th>Hozzászólások</th>
     </tr>
   </thead>
@@ -21,11 +16,8 @@
         <td><%= link_to user.username, user %></td>
         <td><%= user.email %></td>
         <td><%= user.name %></td>
-        <td><%= user.active %></td>
         <td><%= user.login_count %></td>
-        <td><%= user.last_request_at %></td>
-        <td><%= user.current_login_at %></td>
-        <td><%= user.last_login_at %></td>
+        <td><%= day_beforize(user.last_request_at) %></td>
         <td><%= link_to "#{user.posts.size} hozzászólás", posts_path(user_id: user.id) %></td>
       </tr>
     <% end %>

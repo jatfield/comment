@@ -10,20 +10,6 @@ class Post < ApplicationRecord
   validates :number, uniqueness: { scope: :topic_id}  
   validates :user, :topic, :full_text, :number, presence: true
 
-  def created_at_l
-
-    if self.created_at.to_date === Date.today
-      "Ma, #{self.created_at.strftime('%H:%M')}"
-    elsif self.created_at.to_date === Date.today.advance(days: -1)
-      "Tegnap, #{self.created_at.strftime('%H:%M')}"
-    elsif self.created_at.to_date === Date.today.advance(days: -2)
-      "Tegnapelőtt, #{self.created_at.strftime('%H:%M')}"
-    else
-      I18n.l self.created_at
-    end
-
-  end
-
   def question_chain
 
     chain = []

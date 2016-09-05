@@ -6,6 +6,7 @@
   background-color: #7893c5;
   width: 100%;
   color: white;
+  text-shadow: 2px 2px #000000;
   font-size: 120%;
   font-weight: bolder;
   border-top: 2px solid black;
@@ -18,7 +19,28 @@
 
 }
 
-.topic_list_element {
+.visited_topic_list_element {
+
+  margin: 2px 0;
+  background-color: #F0F0F0;
+  padding: 2px;
+  color: dimgrey;
+
+}
+
+.visited_topic_list_element a {
+  
+  color: dimgrey;
+
+}
+
+.visited_topic_list_element a:visited {
+  
+  color: dimgrey;
+
+}
+
+.unvisited_topic_list_element {
 
   margin: 2px 0;
   background-color: #F0F0F0;
@@ -118,4 +140,16 @@ table.level_forecast th {
   color: white;
   padding: 5px;
   font-weight: bolder;
+}
+
+.post_form_container input[type=submit] {
+
+  margin-left: 45%;
+
+}
+
+.post_form_container input[type=file] {
+
+  font-size: 80%;
+
 }

@@ -1,0 +1,7 @@
+<ul class ="thumb_gallery">
+  <%= link_to "Feltöltések:", uploads_path(post_id: post.id), target: "_new" %><br/>
+  <% uploads.each do |u| %>
+    <li><%= link_to image_tag(u.file.url(:thumb)), u.file.url, target: "_new" %></li> 
+  <% end %>
+</ul>
+<!-- TODO: thumbnails, on hover medium, on click post gallery with clicked selected for open --!>

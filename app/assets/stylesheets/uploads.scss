@@ -1,3 +1,46 @@
 // Place all the styles related to the uploads controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+ul.medium_gallery {
+
+  font-size: 1em;
+  margin: 0;
+  padding: 5px;
+  overflow: auto;
+}
+
+ul.medium_gallery li{
+
+  width: 800px;
+  margin: 5px auto;
+  padding: 5px 5px 15px 5px;
+  border: 1px solid black;
+  list-style: none;
+
+}
+
+ul.thumb_gallery {
+
+  font-size: 1em;
+  margin: 0;
+  padding: 5px;
+  overflow: auto;
+}
+
+ul.thumb_gallery li {
+
+  margin: 0;
+  padding: 4px;
+  width: 15.8%;
+
+  float: left;
+  list-style: none;
+
+}
+
+ul.thumb_gallery li img{
+
+  width: 100%;
+
+}
+

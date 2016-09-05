@@ -9,7 +9,7 @@
         <% end %>
       </span> 
       <span class = "post_time"> 
-        <%= p.topic.name.truncate(20, separator: ' ') %>, <%= day_beforize(p.created_at) %>
+        <%= link_to p.topic.name.truncate(20, separator: ' '), p.topic, target: "_new" %>, <%= day_beforize(p.created_at) %>
       </span> 
       <span class = "post_answer"> 
         <%= link_to "Válasz", topic_path(p.topic, answer_to_id: p.id) %>
@@ -20,6 +20,11 @@
     </div>
     <div class = "post_text">
       <%= raw p.full_text %>
+      <% unless p.uploads.empty? %>
+        <div class = "post_uploads">
+          <%= render partial: "uploads/thumb_gallery", locals:  {uploads: p.uploads, post: p} %>
+        </div>
+      <% end %>
     </div>
     <p class = "post_user_signature">
       <%= p.user.signature %>
@@ -48,6 +53,11 @@
             </div>
             <div class = "post_text">
               <%= raw l.full_text %>
+              <% unless l.uploads.empty? %>
+                <div class = "post_uploads">
+                  <%= render partial: "uploads/thumb_gallery", locals:  {uploads: l.uploads, post: l} %>
+                </div>
+              <% end %>
             </div>
           <% end %>
         </div>

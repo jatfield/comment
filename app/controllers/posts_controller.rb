@@ -29,7 +29,6 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-#    @post = Post.new(post_params)
     @topic = Topic.find(params[:topic_id])
     @user = User.find(params[:user_id])
     @topic.last_post ? number = @topic.last_post.number + 1 : number = 1
@@ -37,6 +36,9 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
+        if params[:images] 
+          params[:images].each {|i| @post.uploads.create(file: i, user: @post.user)}
+        end
         format.html { redirect_to @topic }
         format.json { render :show, status: :created, location: @post }
       else

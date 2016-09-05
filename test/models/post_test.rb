@@ -32,24 +32,6 @@ class PostTest < ActiveSupport::TestCase
     post = FactoryGirl.build(:post, number: post0.number, topic: post0.topic)
     assert !post.save, "Post with same number should not be saved"
   end
- 
-  test "returns_created_at_l_for_today" do
-    time_of_post = Time.now
-    post = FactoryGirl.create(:post, created_at: time_of_post)
-    assert post.created_at_l ==  "Ma, #{time_of_post.strftime('%H:%M')}", "Instead: Ma, #{time_of_post.strftime('%H:%M')} it is #{post.created_at_l}"
-  end
- 
-  test "returns_created_at_l_for_yesterday" do
-    time_of_post = Time.now.advance(days: -1)
-    post = FactoryGirl.create(:post, created_at: time_of_post)
-    assert post.created_at_l ==  "Tegnap, #{time_of_post.strftime('%H:%M')}", "Instead: Tegnap, #{time_of_post.strftime('%H:%M')} it is #{post.created_at_l}"
-  end
- 
-  test "returns_created_at_l_for_past" do
-    time_of_post = Time.now.advance(days: -2)
-    post = FactoryGirl.create(:post, created_at: time_of_post)
-    assert post.created_at_l ==  "#{I18n.l time_of_post}", "Instead: #{I18n.l time_of_post} it is #{post.created_at_l}"
-  end
 
   test "should_return_question_chain" do
     question = create(:post)

@@ -20,7 +20,7 @@ body {
   cursor: default;
   margin: 0;
   padding: 0;
-
+  color: black;
 }
 
 textarea, input {
@@ -178,6 +178,7 @@ a:link.menu {
   
   text-decoration: none;
   color: white;
+  text-shadow: 2px 2px #000000;
   display: inline-block;
 
 }
@@ -212,6 +213,7 @@ a:active.menu {
 .page_title {
 
   color: white;
+  text-shadow: 2px 2px #000000;
   display: inline-block;
 
 }

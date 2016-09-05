@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_user_session, :current_user, :is_admin?
-  before_action :require_login, :set_font_size
+  before_action :require_login, :set_session_defaults
 private 
 
   def current_user_session
@@ -25,10 +25,10 @@ private
     end
   end
   
-  def set_font_size
+  def set_session_defaults
 
     @font_size = session[:font_size] || "120%"
-
+    session[:visited_topics] ||= {}
   end
 
 end

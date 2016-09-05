@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :upload do
-    user nil
-    post nil
+    user
+    post
+    file File.new("test/fixtures/test_image.jpg") 
   end
 end

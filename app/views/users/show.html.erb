@@ -25,53 +25,59 @@
   <strong>Név:</strong>
   <%= @user.name %>
 </p>
+<% if is_admin? %>
+  <p>
+    <strong>Aktív?</strong>
+    <%= @user.active %>
+  </p>
+  
+  <p>
+    <strong>Bejelentkezések száma:</strong>
+    <%= @user.login_count %>
+  </p>
+  
+  <p>
+    <strong>Aktuális bejelentkezés időpontja:</strong>
+    <%= day_beforize(@user.current_login_at) %>
+  </p>
+  
+  <p>
+    <strong>Utolsó bejelentkezés időpontja:</strong>
+    <%= day_beforize(@user.last_login_at) %>
+  </p>
+  
+  <p>
+    <strong>Jelenlegi IP:</strong>
+    <%= @user.current_login_ip %>
+  </p>
+  
+  <p>
+    <strong>Utolsó IP:</strong>
+    <%= @user.last_login_ip %>
+  </p>
+<% end %>
+  
+  <p>
+    <strong>Itt járt:</strong>
+    <%= day_beforize(@user.last_request_at) %>
+  </p>
 
-<p>
-  <strong>Aktív?</strong>
-  <%= @user.active %>
-</p>
-
-<p>
-  <strong>Bejelntkezések száma:</strong>
-  <%= @user.login_count %>
-</p>
-
-<p>
-  <strong>Utolsó aktivitás:</strong>
-  <%= @user.last_request_at %>
-</p>
-
-<p>
-  <strong>Aktuális bejelentkezés időpontja:</strong>
-  <%= @user.current_login_at %>
-</p>
-
-<p>
-  <strong>Utolsó bejelentkezés időpontja:</strong>
-  <%= @user.last_login_at %>
-</p>
-
-<p>
-  <strong>Jelenlegi IP:</strong>
-  <%= @user.current_login_ip %>
-</p>
-
-<p>
-  <strong>Utolsó IP:</strong>
-  <%= @user.last_login_ip %>
-</p>
 <p>
   <strong>Hozzászólások:</strong>
   <%= link_to "#{@user.posts.size} db.", posts_path(user_id: @user.id) %>
+</p>
+
+<p>
+  <strong>Feltöltések:</strong>
+  <%= link_to "#{@user.uploads.size} db.", uploads_path(user_id: @user.id) %>
 </p>
 <% if current_user == @user %>
  
 <p>
   <strong>Fontméret:</strong><br/> 
-    <% 1.upto(1000) do |i| %>
-      <%= link_to_unless(session[:font_size] == "#{i}%", "#{i}%", set_custom_vars_users_path(font_size: "#{i}%")) %><br/>
-    <% end %> 
+    <%= link_to_unless(session[:font_size] == "70%", "Tarasz", set_custom_vars_users_path(font_size: "70%")) %> ● <%= link_to_unless(session[:font_size] == "90%", "Tarasz + 20%", set_custom_vars_users_path(font_size: "90%")) %> ● <%= link_to_unless(session[:font_size] == "110%", "Tarasz + 40%", set_custom_vars_users_path(font_size: "110%")) %> ● <%= link_to_unless(session[:font_size] == "120%", "Normál", set_custom_vars_users_path(font_size: "120%")) %><br/>
 </p>
+
 <p>
   <strong>Hozzászólások/oldal:</strong> 
   <%= form_tag set_custom_vars_users_path, method: "get" do %>

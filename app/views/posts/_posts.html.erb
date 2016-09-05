@@ -20,6 +20,11 @@
     </div>
     <div class = "post_text">
       <%= raw p.full_text %>
+      <% unless p.uploads.empty? %>
+        <div class = "post_uploads">
+          <%= render partial: "uploads/thumb_gallery", locals:  {uploads: p.uploads, post: p} %>
+        </div>
+      <% end %>
     </div>
     <p class = "post_user_signature">
       <%= p.user.signature %>
@@ -48,6 +53,11 @@
             </div>
             <div class = "post_text">
               <%= raw l.full_text %>
+              <% unless l.uploads.empty? %>
+                <div class = "post_uploads">
+                  <%= render partial: "uploads/thumb_gallery", locals:  {uploads: l.uploads, post: l} %>
+                </div>
+              <% end %>
             </div>
           <% end %>
         </div>

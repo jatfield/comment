@@ -10,6 +10,7 @@ class TopicsController < ApplicationController
   # GET /topics/1
   # GET /topics/1.json
   def show
+    session[:visited_topics][@topic.id] = Time.now
     load_forecast if @topic.id == 40
     @page_title = @topic.name
     params[:page] ||= 1

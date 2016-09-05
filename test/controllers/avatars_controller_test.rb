@@ -6,6 +6,10 @@ class AvatarsControllerTest < ActionDispatch::IntegrationTest
     @avatar = create(:avatar, user: @user)
   end
 
+  teardown do
+    file_remove
+  end
+
   test "should not get anything if not logged in" do
     delete sign_out_url
     get new_avatar_url, params: { user_id: @user.id }

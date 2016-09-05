@@ -5,11 +5,12 @@
   <%= render "level_forecast" %>
 </div>
 <div class = "post_form_container">
-  <%= form_tag topic_posts_path(@topic), method: 'post' do %>
+  <%= form_tag topic_posts_path(@topic), method: 'post', multipart: true do %>
     <p>Hozzászólás:</p>
     <%= hidden_field_tag :user_id, current_user.id %>  
     <%= text_area_tag :full_text, nil, class: "tinymce" %>
     <%= tinymce %>
+    <%= file_field_tag "images[]", multiple: true, accept: ".jpg,.jpeg" %><br/>
     <%= submit_tag 'Mehet!', :name => nil %>
   <% end %>
 </div>

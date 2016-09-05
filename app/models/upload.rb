@@ -7,7 +7,7 @@ class Upload < ApplicationRecord
                            url: "/system/:hash.:extension",
                            hash_secret: "27c304329f9ed4d22ef3e285c9c284104d4d44949f86fba1e2a062fef053aee3cb9c87690b898842026608b2023d30ce3c1b9c84df02fd4cc17d3e646e4b8452"
   validates_attachment_content_type :file, content_type: /\Aimage/
-  validates_attachment_file_name :file, matches: [/jpe?g\Z/]
+  validates_attachment_file_name :file, matches: [/jpe?g\Z/, /gif\z/]
   belongs_to :user
   belongs_to :post
 

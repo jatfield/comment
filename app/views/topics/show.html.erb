@@ -10,7 +10,7 @@
     <%= hidden_field_tag :user_id, current_user.id %>  
     <%= text_area_tag :full_text, nil, class: "tinymce" %>
     <%= tinymce %>
-    <%= file_field_tag "images[]", multiple: true, accept: ".jpg,.jpeg" %><br/>
+    <%= file_field_tag "images[]", multiple: true, accept: ".jpg,.jpeg,.gif" %><br/>
     <%= submit_tag 'Mehet!', :name => nil %>
   <% end %>
 </div>

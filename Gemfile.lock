@@ -162,6 +162,8 @@ GEM
     scrypt (3.0.2)
       ffi-compiler (>= 1.0.0)
       rake
+    skylight (0.10.6)
+      activesupport (>= 3.0.0)
     spring (1.7.2)
     spring-watcher-listen (2.0.0)
       listen (>= 2.7, < 4.0)
@@ -218,6 +220,7 @@ DEPENDENCIES
   puma (~> 3.0)
   rails (~> 5.0.0)
   sass-rails (~> 5.0)
+  skylight
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3

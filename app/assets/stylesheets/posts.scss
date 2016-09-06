@@ -34,7 +34,7 @@
 
 .post_user {
 
-  width: 35%;
+  width: 25%;
   height: 100%;
   display: inline-block;
 
@@ -109,6 +109,15 @@ img.avatar a {
 
 }
 
+.post_votes {
+
+  width: 10%;
+  display: inline-block;
+  text-align: right;
+  vertical-align: top;
+
+}
+
 .post_text {
 
   padding: 5px;
@@ -117,6 +126,12 @@ img.avatar a {
 }
 
 .post_text p {
+
+  max-width: 800px;
+
+}
+
+.post_text img {
 
   max-width: 800px;
 

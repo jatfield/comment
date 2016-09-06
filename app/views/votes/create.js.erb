@@ -1,0 +1,2 @@
+var target = '<%= "#post_votes_#{@post.id}" %>'
+$(target).html("<%= escape_javascript(render partial: "posts/vote_box", locals:  {p: @post})%>");

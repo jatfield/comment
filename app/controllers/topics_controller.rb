@@ -4,7 +4,7 @@ class TopicsController < ApplicationController
   # GET /topics
   # GET /topics.json
   def index
-    @topics = Topic.order(updated_at: :desc).all.includes(:user)
+    @topics = Topic.order(updated_at: :desc).all
   end
 
   # GET /topics/1

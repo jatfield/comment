@@ -2,13 +2,8 @@ class Topic < ApplicationRecord
 
   belongs_to :user
   has_many :posts
-
+  has_one :last_post, -> {order 'number desc'}, class_name: "Post"
   validates :name, presence: true
 
-  def last_post
-
-    self.posts.order(number: :desc).first
-
-  end
 
 end

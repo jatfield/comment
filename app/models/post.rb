@@ -4,7 +4,8 @@ class Post < ApplicationRecord
   belongs_to :topic, touch: true
   belongs_to :answer_to, class_name: "Post"
   has_many :answers, class_name: "Post", primary_key: "answer_to_id"
-  has_many :votes
+  has_many :upvotes, -> { where downvote: false }, class_name: "Vote"
+  has_many :downvotes, -> { where downvote: true }, class_name: "Vote"
   has_many :uploads
 
   validates :number, uniqueness: { scope: :topic_id}  

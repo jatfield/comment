@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   resources :avatars, only: [:new, :create, :edit, :update, :destroy]
   resources :uploads, only: [:index, :destroy]
-#  resources :votes
+  resources :votes, only: [:create]
   resources :posts, only: [:index, :create, :edit, :update, :destroy]
   resources :topics do
     resources :posts 

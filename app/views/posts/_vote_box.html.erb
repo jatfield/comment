@@ -1,3 +1,2 @@
-<%= link_to "▲#{p.upvotes.size}", votes_path(vote:{user_id: current_user.id, post_id: p.id}), method: "post", title: "Jee", :remote => true %> 
-<%= link_to "▼#{p.downvotes.size}", votes_path(vote:{user_id: current_user.id, post_id: p.id, downvote: true}), method: "post", title: "Dikk", :remote => true %>
+<%= link_to "▲#{p.upvotes.size}", votes_path(vote:{user_id: current_user.id, post_id: p.id}), method: "post", title: "Jee", :remote => true %> <%= link_to "▼#{p.downvotes.size}", votes_path(vote:{user_id: current_user.id, post_id: p.id, downvote: true}), method: "post", title: "Dikk", :remote => true %>
 

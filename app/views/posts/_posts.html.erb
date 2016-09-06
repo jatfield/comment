@@ -14,11 +14,11 @@
       <span class = "post_answer"> 
         <%= link_to "Válasz", "#", title: "#{p.id}", class: "post_answer_link" %>
       </span> 
-      <span class = "post_number"> 
-        <%= link_to_if(is_admin? || current_user == p.user, image_tag("edit.png", class: "button"), edit_post_path(p)){} %>#<%= p.number %>
-      </span> 
       <span class = "post_votes" id = <%="post_votes_#{p.id}"%>> 
         <%= render partial: "posts/vote_box", locals:  {p: p}%>
+      </span> 
+      <span class = "post_number"> 
+        <%= link_to_if(is_admin? || current_user == p.user, image_tag("edit.png", class: "button"), edit_post_path(p)){} %>#<%= p.number %>
       </span> 
     </div>
     <div class = "post_text">

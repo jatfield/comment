@@ -23,25 +23,23 @@
       </div>
     </div>
     <div id = "footer">
-      <div id = "bottom_menu">
-        <p class = "centered">
-          <% if current_user %>
-            <%= link_to "#{current_user.username} adatlapja", current_user, class:"menu" %> ●
-            <%= link_to "Többiek", users_path, class:"menu" %> ●
-            <%= link_to "Kijelentkezés", sign_out_path, method: :delete, class:"menu" %> ●
-            <%= is_admin? ? link_to("Admin ki", admin_up_users_path, class:"menu") : link_to("Admin be", admin_up_users_path, class:"menu") %>
-        </p>
-          <div class = "search_form_container"> 
+      <ul id = "bottom_menu">
+        <% if current_user %>
+          <li><%= link_to "#{current_user.username} adatlapja", current_user, class:"menu" %></li>
+          <li><%= link_to "Többiek", users_path, class:"menu" %></li>
+          <li><%= link_to "Kijelentkezés", sign_out_path, method: :delete, class:"menu" %></li>
+          <li><%= is_admin? ? link_to("Admin ki", admin_up_users_path, class:"menu") : link_to("Admin be", admin_up_users_path, class:"menu") %></li>
+          <li> 
             <%= form_tag posts_path, method: "get" do %>
-              <%= text_field_tag :search_term, nil, placeholder: "Keresett kifejezés", class:"menu" %>
+              <%= text_field_tag :search_term, nil, placeholder: "Keresett kifejezés", size: "15" %>
               <%= submit_tag "Keresés" %>
             <% end %>
-          <% else %>
-            <%= link_to "Bejelentkezés", sign_in_path, class:"menu" %> ●
-            <%= link_to "Elfelejtett jelszó", forgotten_password_users_path, class:"menu" %>
-          <% end %>
-        </div>
-      </div>
+          </li>
+        <% else %>
+          <li><%= link_to "Bejelentkezés", sign_in_path, class:"menu" %></li>
+          <li><%= link_to "Elfelejtett jelszó", forgotten_password_users_path, class:"menu" %></li>
+        <% end %>
+      </ul>
     </div>
   </body>
 </html>

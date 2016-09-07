@@ -21,6 +21,7 @@ body {
   margin: 0;
   padding: 0;
   color: black;
+
 }
 
 textarea, input {
@@ -134,7 +135,7 @@ img.button {
 
   position: absolute;
   top: 35px;
-  bottom: 75px;
+  bottom: 35px;
   left: 0;
   width: 100%;
   overflow: auto;
@@ -155,7 +156,7 @@ img.button {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 75px;
+  height: 35px;
   background-color: #7893c5;
   border-top: 2px solid black;
 
@@ -163,14 +164,28 @@ img.button {
 
 #bottom_menu {
 
-  position: relative;
-  width: 100%;
   max-width: 1000px;
   margin: 0 auto;
-  height: 53px;  
-  padding: 10px;
+  padding: 5px;
+  overflow: auto;
   color: white;
   font-weight: bolder;
+  font-size: 1em;
+
+}
+
+#bottom_menu li{
+
+  float: left;
+  margin: 0 15px;
+  padding: 0;
+ 
+}
+
+#bottom_menu input{
+
+  font-size: 0.8em
+ 
 }
 
 
@@ -236,5 +251,80 @@ a:active.menu {
 .pagination .current {
 
   color: grey;
+
+}
+
+@media screen and (max-height: 768px) {
+
+
+  #header {
+   
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80%; 
+    margin: 0;
+    padding-right: 20%;
+
+  }
+
+  #top_menu {
+  
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    height: 5%;  
+    margin: 0;
+    padding: 0;
+  }
+
+  #main {
+
+    position: absolute;
+    top: 5%;
+    left: 0;
+    height: 94%;
+    width: 80%; 
+    margin: 0;
+    padding: 0;
+
+  }
+
+  #content {
+
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+  }
+  
+  #footer {
+   
+    position: absolute;
+    top: 5%;
+    left: 80%;
+    width: 20%;
+    height: 94%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+
+  }
+
+  #bottom_menu {
+  
+    width: 100%;
+    height: 100%;
+    padding: 5px 0; 
+
+  }
+  
+  #bottom_menu li{
+
+    float: none; 
+    margin: 5px 5px 10px 20px; 
+    line-height: 110%;
+  }
 
 }

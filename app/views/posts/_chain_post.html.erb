@@ -1,0 +1,27 @@
+
+  <div class="post_header">
+    <span class = "post_user"> 
+      <% if chain_post.user.avatar %>
+        <%= link_to image_tag(chain_post.user.avatar.picture.url, class:"avatar", alt:"#{chain_post.user.username}"), chain_post.user %>
+        <% else %>
+          <%= link_to chain_post.user.username, chain_post.user %>
+      <% end %>
+    </span> 
+    <span class = "post_time"> 
+      <%= day_beforize(chain_post.created_at) %>
+    </span> 
+    <span class = "post_votes"> 
+      <%= "▲#{chain_post.upvotes.size}" %> <%= "▼#{chain_post.downvotes.size}" %>
+    </span> 
+    <span class = "post_number"> 
+      #<%= chain_post.number %>
+    </span> 
+  </div>
+  <div class = "post_text">
+    <%= raw chain_post.full_text %>
+    <% unless chain_post.uploads.empty? %>
+      <div class = "post_uploads">
+        <%= render partial: "uploads/thumb_gallery", locals:  {uploads: chain_post.uploads, post: chain_post} %>
+      </div>
+    <% end %>
+  </div>

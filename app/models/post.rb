@@ -20,6 +20,7 @@ class Post < ApplicationRecord
       post = post.answer_to
     end
     return chain
+
   end
 
   def self.search(search_term)

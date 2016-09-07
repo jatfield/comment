@@ -17,7 +17,7 @@ class TopicsController < ApplicationController
     session[:posts_per_page] ||= 40
     page = params[:page]
     posts_per_page = session[:posts_per_page]
-    @posts = @topic.posts.order(number: :desc).page(page).per(posts_per_page).includes(:user, :answer_to)
+    @posts = @topic.posts.order(number: :desc).page(page).per(posts_per_page).includes({user: :avatar}, :answer_to, :uploads, :upvotes, :downvotes)
   end
 
   # GET /topics/new

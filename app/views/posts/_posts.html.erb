@@ -38,31 +38,7 @@
           <%= "Válasz erre: ##{p.answer_to.number}" if p.answer_to %>
         </p>
         <div class = "post_chain">
-          <% p.question_chain.each do |l| %>
-            <div class="post_header">
-              <span class = "post_user"> 
-                <% if l.user.avatar %>
-                  <%= link_to image_tag(l.user.avatar.picture.url, class:"avatar", alt:"#{l.user.username}"), l.user %>
-                  <% else %>
-                    <%= link_to l.user.username, l.user %>
-                <% end %>
-              </span> 
-              <span class = "post_time"> 
-                <%= day_beforize(l.created_at) %>
-              </span> 
-              <span class = "post_number"> 
-                #<%= l.number %>
-              </span> 
-            </div>
-            <div class = "post_text">
-              <%= raw l.full_text %>
-              <% unless l.uploads.empty? %>
-                <div class = "post_uploads">
-                  <%= render partial: "uploads/thumb_gallery", locals:  {uploads: l.uploads, post: l} %>
-                </div>
-              <% end %>
-            </div>
-          <% end %>
+          <%= render partial: "posts/chain_post", collection: p.question_chain, cached: true %>
         </div>
       </div>
     <% end %>

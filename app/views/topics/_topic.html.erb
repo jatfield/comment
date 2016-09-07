@@ -1,0 +1,9 @@
+<div class = "<%=session[:visited_topics][topic.id.to_s] && session[:visited_topics][topic.id.to_s] >= topic.updated_at ? "visited_topic" : "unvisited_topic"%>_list_element">
+  <span class = "topic_title">
+    <%= link_to topic.name, topic, class: "" %>
+    <%= link_to_if(is_admin?, image_tag("edit.png", class: "button"), edit_topic_path(topic), target: '_blank'){} %>
+  </span>
+  <span class = "topic_messages"><%= topic.cached_post_count %> db.</span>
+  <span class = "topic_last_message"><%= day_beforize(topic.cached_last_post.created_at) if topic.cached_last_post %></span>
+  <span class = "topic_last_poster"><%= link_to(topic.cached_last_post.user.username, topic.cached_last_post.user, target: '_blank') if topic.cached_last_post %></span>
+</div>

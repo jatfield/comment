@@ -5,5 +5,24 @@ class Topic < ApplicationRecord
   has_one :last_post, -> {order 'number desc'}, class_name: "Post"
   validates :name, presence: true
 
+  def cached_last_post
+
+    cache_key = "cached_last_post|#{id}|#{self.updated_at}"
+    Rails.cache.fetch(cache_key, expires_in: 2.days) do
+
+      last_post  
+
+    end
+  end
+
+  def cached_post_count
+
+    cache_key = "cached_post_count|#{id}|#{self.updated_at}"
+    Rails.cache.fetch(cache_key, expires_in: 2.days) do
+
+      posts.size  
+
+    end
+  end
 
 end

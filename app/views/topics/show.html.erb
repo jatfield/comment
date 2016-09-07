@@ -6,6 +6,17 @@
 </div>
 <div class = "post_form_container">
   <%= form_tag topic_posts_path(@topic), method: 'post', multipart: true do %>
+    <% if @topic.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= @topic.errors.count %> hiba miatt nem menthető:</h2>
+  
+        <ul>
+        <% @topic.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
     <p>Hozzászólás:</p>
     <%= hidden_field_tag :user_id, current_user.id %>  
     <%= text_area_tag :full_text, nil, class: "tinymce" %>

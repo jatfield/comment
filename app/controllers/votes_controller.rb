@@ -6,6 +6,7 @@ class VotesController < ApplicationController
     @post = @vote.post
     respond_to do |format|
       if @vote.save
+        session[:visited_topics][@post.topic.id] = Time.now
         format.html { redirect_back(fallback_location: root_path) }
         format.json { render :show, status: :created, location: @vote }
         format.js {}

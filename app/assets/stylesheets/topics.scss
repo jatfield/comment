@@ -6,11 +6,11 @@
   background-color: #7893c5;
   width: 100%;
   color: white;
-  text-shadow: 2px 2px #000000;
+  text-shadow: 0.1em 0.1em #000000;
   font-size: 120%;
   font-weight: bolder;
-  border-top: 2px solid black;
-  padding: 10px 0;
+  border-top: 0.1em solid black;
+  padding: 0.5em 0;
 }
 
 .topic_list {
@@ -21,9 +21,9 @@
 
 .visited_topic_list_element {
 
-  margin: 2px 0;
+  margin: 0.1em 0;
   background-color: #F0F0F0;
-  padding: 2px;
+  padding: 0.1em;
   color: dimgrey;
 
 }
@@ -48,9 +48,9 @@
 
 .unvisited_topic_list_element {
 
-  margin: 2px 0;
+  margin: 0.1em 0;
   background-color: #F0F0F0;
-  padding: 2px;
+  padding: 0.1em;
 
 }
 
@@ -62,7 +62,7 @@
 
 .topic_description {
   
-  padding: 10px;
+  padding: 0.5em;
   text-align: center;
   
 }
@@ -128,7 +128,7 @@ table.level_forecast th {
 }
 .topic_posts {
 
-  padding: 10px 0;
+  padding: 0.5em 0;
 }
 
 .post_form_container {
@@ -136,7 +136,6 @@ table.level_forecast th {
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
-  min-height: 240px;
   background-color: #7893c5;
 }
 
@@ -144,7 +143,7 @@ table.level_forecast th {
 
   text-align: center;
   color: white;
-  padding: 5px;
+  padding: 0.25em;
   font-weight: bolder;
 }
 
@@ -152,6 +151,13 @@ table.level_forecast th {
 
   margin-left: 45%;
 
+}
+
+.post_form_container textarea {
+
+  width: 96%;
+  margin: 2%;
+  resize: vertical;
 }
 
 .post_form_container input[type=file] {

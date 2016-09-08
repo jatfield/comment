@@ -64,7 +64,7 @@ p.centered {
 p#notice {
 
   text-align: center;
-  text-shadow: 0 0 4px #7893c5;
+  text-shadow: 0 0 0.2em #7893c5;
   color: white;
   font-weight: bolder;
 }
@@ -103,7 +103,7 @@ background: none;
 
 img.button {
 
-  width: 16px;
+  width: 0.8em;
 
 }
 
@@ -113,9 +113,9 @@ img.button {
   top: 0;
   left: 0;   
   width: 100%;
-  height: 35px;  
+  height: 1.8em;  
   background-color: #7893c5;
-  border-bottom: 2px solid black;
+  border-bottom: 0.1em solid black;
 
 }
 
@@ -125,8 +125,7 @@ img.button {
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
-  height: 33px;  
-  padding: 5px 10px;
+  padding: 0.25em 0.5em;
   color: white;
   font-weight: bolder;
 }
@@ -134,8 +133,8 @@ img.button {
 #main {
 
   position: absolute;
-  top: 35px;
-  bottom: 35px;
+  top: 1.8em;
+  bottom: 1.8em;
   left: 0;
   width: 100%;
   overflow: auto;
@@ -156,9 +155,9 @@ img.button {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 35px;
+  height: 2.8em;
   background-color: #7893c5;
-  border-top: 2px solid black;
+  border-top: 0.1em solid black;
 
 }
 
@@ -166,7 +165,7 @@ img.button {
 
   max-width: 1000px;
   margin: 0 auto;
-  padding: 5px;
+  padding: .25em;
   overflow: auto;
   color: white;
   font-weight: bolder;
@@ -177,7 +176,7 @@ img.button {
 #bottom_menu li{
 
   float: left;
-  margin: 0 15px;
+  margin: 0 0.8em;
   padding: 0;
  
 }
@@ -193,7 +192,7 @@ a:link.menu {
   
   text-decoration: none;
   color: white;
-  text-shadow: 2px 2px #000000;
+  text-shadow: 0.1em 0.1em #000000;
   display: inline-block;
 
 }
@@ -228,7 +227,7 @@ a:active.menu {
 .page_title {
 
   color: white;
-  text-shadow: 2px 2px #000000;
+  text-shadow: 0.1em 0.1em #000000;
   display: inline-block;
 
 }
@@ -256,75 +255,26 @@ a:active.menu {
 
 @media screen and (max-height: 768px) {
 
+#header {
 
-  #header {
-   
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 80%; 
-    margin: 0;
-    padding-right: 20%;
+  position: static;
+  float: left;
 
-  }
+}
 
-  #top_menu {
-  
-    position: relative;
-    width: 100%;
-    margin: 0 auto;
-    height: 5%;  
-    margin: 0;
-    padding: 0;
-  }
+#main {
 
-  #main {
+  position: static;
+  float: left;
+  overflow: visible;
 
-    position: absolute;
-    top: 5%;
-    left: 0;
-    height: 94%;
-    width: 80%; 
-    margin: 0;
-    padding: 0;
+}
 
-  }
+#footer {
 
-  #content {
+  position: static;
+  float: left;
 
-    position: relative;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-
-  }
-  
-  #footer {
-   
-    position: absolute;
-    top: 5%;
-    left: 80%;
-    width: 20%;
-    height: 94%;
-    margin: 0;
-    padding: 0;
-    border: 0;
-
-  }
-
-  #bottom_menu {
-  
-    width: 100%;
-    height: 100%;
-    padding: 5px 0; 
-
-  }
-  
-  #bottom_menu li{
-
-    float: none; 
-    margin: 5px 5px 10px 20px; 
-    line-height: 110%;
-  }
+}
 
 }

@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_user_session, :current_user, :is_admin?
-  before_action :require_login, :set_session_defaults
+  before_action :require_login, :set_session_defaults, :detect_mobile
 private 
 
   def current_user_session
@@ -29,6 +29,14 @@ private
 
     @font_size = session[:font_size] || "120%"
     session[:visited_topics] ||= {}
+
   end
+
+  def detect_mobile
+
+    request.user_agent =~ /android|blackberry|iphone|ipad|ipod|iemobile|mobile|webos/i ? session[:is_mobile] = true : session[:is_mobile] = false
+
+  end
+
 
 end

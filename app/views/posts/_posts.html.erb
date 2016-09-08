@@ -18,7 +18,7 @@
         <%= render partial: "posts/vote_box", locals:  {p: p}%>
       </span> 
       <span class = "post_number"> 
-        <%= link_to_if(is_admin? || current_user == p.user, image_tag("edit.png", class: "button"), edit_post_path(p)){} %>#<%= p.number %>
+        #<%= p.number %><%= link_to_if(is_admin? || current_user == p.user, image_tag("edit.png", class: "button"), edit_post_path(p)){} %>
       </span> 
     </div>
     <div class = "post_text">
@@ -35,7 +35,7 @@
     <% if p.answer_to %>
       <div class = "answer_post">
         <p class = "post_answer_to">
-          <%= "Válasz erre: ##{p.answer_to.number}" if p.answer_to %>
+          <%= "Válasz erre: #{p.answer_to.user.username}, ##{p.answer_to.number}" if p.answer_to %>
         </p>
         <div class = "post_chain">
           <%= render partial: "posts/chain_post", collection: p.question_chain, cached: true %>

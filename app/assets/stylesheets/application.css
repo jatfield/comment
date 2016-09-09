@@ -125,16 +125,16 @@ img.button {
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
-  padding: 0.25em 0.5em;
   color: white;
   font-weight: bolder;
+  font-size: 130%;
 }
 
 #main {
 
   position: absolute;
   top: 1.8em;
-  bottom: 1.8em;
+  bottom: 2em;
   left: 0;
   width: 100%;
   overflow: auto;
@@ -155,7 +155,7 @@ img.button {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 2.8em;
+  height: 2em;
   background-color: #7893c5;
   border-top: 0.1em solid black;
 

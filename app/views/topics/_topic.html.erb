@@ -1,4 +1,4 @@
-<div class = "<%=session[:visited_topics][topic.id.to_s] && session[:visited_topics][topic.id.to_s] >= topic.updated_at ? "visited_topic" : "unvisited_topic"%>_list_element">
+<div class = "<%= session[:visited_topics][topic.id.to_s] && session[:visited_topics][topic.id.to_s] >= topic.updated_at ? "visited_topic" : "unvisited_topic"%>_list_element">
   <span class = "topic_title">
     <%= link_to topic.name, topic, class: "" %>
     <%= link_to_if(is_admin?, image_tag("edit.png", class: "button"), edit_topic_path(topic), target: '_blank'){} %>

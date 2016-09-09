@@ -64,12 +64,12 @@
 
 <p>
   <strong>Hozzászólások:</strong>
-  <%= link_to "#{@user.posts.size} db.", posts_path(user_id: @user.id) %>
+  <%= link_to "#{@user.posts.size} db", posts_path(user_id: @user.id) %>
 </p>
 
 <p>
   <strong>Feltöltések:</strong>
-  <%= link_to "#{@user.uploads.size} db.", uploads_path(user_id: @user.id) %>
+  <%= link_to "#{@user.uploads.size} db", uploads_path(user_id: @user.id) %>
 </p>
 <% if current_user == @user %>
  

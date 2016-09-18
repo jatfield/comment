@@ -22,7 +22,7 @@
       </span> 
     </div>
     <div class = "post_text">
-      <%= simple_format(p.full_text, {}, sanitize: false) %>
+      <%= raw (p.full_text).gsub("\n", "<br>") %>
       <% unless p.uploads.empty? %>
         <div class = "post_uploads">
           <%= render partial: "uploads/thumb_gallery", locals:  {uploads: p.uploads, post: p} %>

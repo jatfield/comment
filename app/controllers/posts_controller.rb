@@ -72,6 +72,30 @@ class PostsController < ApplicationController
     end
   end
 
+  def voter_list
+    @post = Post.find(params[:post_id])
+    @previous_target = session[:previous_target] unless session[:previous_target] =="#post_voter_list_#{@post.id}"
+    if params[:downvote] 
+      @votes_by_user = @post.downvotes.includes(:user).group_by { |p| p.user } if @post.downvotes
+      @vote_type = "Dikk!"
+    else
+      @votes_by_user = @post.upvotes.includes(:user).group_by { |p| p.user } if @post.upvotes
+      @vote_type = "Jee!"
+    end
+    respond_to do |format|
+      format.js {}
+    end
+    session[:previous_target] = "#post_voter_list_#{@post.id}"
+  end
+
+  def post_chain
+    @post = Post.find(params[:post_id])
+    respond_to do |format|
+      format.js {}
+    end
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post

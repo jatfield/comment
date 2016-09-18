@@ -1,0 +1,3 @@
+var target_chain = '<%= "#post_chain_#{@post.id}" %>';
+$(target_chain).html("<%= escape_javascript(render partial: "posts/chain_post", collection: @post.question_chain) %>");
+$(target_chain).toggle();

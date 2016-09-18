@@ -1,10 +1,4 @@
-<%= link_to "▲#{p.upvotes.size}", votes_path(vote:{user_id: current_user.id, post_id: p.id}), method: "post", title: "Jee", :remote => true %> 
-<%= link_to "▼#{p.downvotes.size}", votes_path(vote:{user_id: current_user.id, post_id: p.id, downvote: true}), method: "post", title: "Dikk", :remote => true %>
-<!--<div class ="votelink">
-  <%= p.upvotes.size %><br/>
-  <%= link_to "Dikk", votes_path(vote:{user_id: current_user.id, post_id: p.id}), method: "post", title: "Jee", :remote => true %> 
-</div>
-<div class ="votelink">
-  <%= p.downvotes.size %><br/>
-  <%= link_to "Jeee", votes_path(vote:{user_id: current_user.id, post_id: p.id, downvote: true}), method: "post", title: "Dikk", :remote => true %>
-</div>-->
+<%= link_to "▲", votes_path(vote:{user_id: current_user.id, post_id: p.id}), method: "post", title: "Jee", :remote => true %> 
+<%= link_to "#{p.upvotes.size}", voter_list_posts_path(post_id: p.id), :remote => true %> 
+<%= link_to "▼", votes_path(vote:{user_id: current_user.id, post_id: p.id, downvote: true}), method: "post", title: "Dikk", :remote => true %>
+<%= link_to "#{p.downvotes.size}", voter_list_posts_path(post_id: p.id, downvote:true), :remote => true %> 

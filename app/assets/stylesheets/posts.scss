@@ -6,7 +6,7 @@
   border-top: 0.1em solid black;
   width: 100%;
   max-width: 1000px;
-  overflow: auto; 
+  overflow: visible;
 
 }
 
@@ -108,6 +108,15 @@ img.avatar a {
 
 }
 
+.post_answer_to {
+
+  height: 1.5em;
+  width: 100%;
+  text-align: right;
+  font-size: 80%;
+  display: block;
+}
+
 .post_number {
 
   width: 9%;
@@ -125,14 +134,22 @@ img.avatar a {
   vertical-align: top;
 
 }
+.voter_list {
 
-.votelink {
+  position: relative;
+  overflow: visible;
 
-  float: left;
-  width: 50%;
-  font-size: 70%;
-  text-align: center;
+}
 
+.voter_list div {
+
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  border: 3px solid #7893c5;
+  background-color: white;
 }
 
 .post_text {
@@ -197,11 +214,3 @@ p.archived_comment {
 
 }
 
-.post_answer_to {
-
-  height: 1.5em;
-  text-align: right;
-  font-size: 80%;
-  cursor: help;
-
-}

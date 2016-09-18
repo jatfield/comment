@@ -22,7 +22,7 @@
       </span> 
     </div>
     <div class = "post_text">
-      <%= raw (p.full_text).gsub("\n", "<br>") %>
+      <%= raw p.full_text %>
       <% unless p.uploads.empty? %>
         <div class = "post_uploads">
           <%= render partial: "uploads/thumb_gallery", locals:  {uploads: p.uploads, post: p} %>
@@ -58,7 +58,7 @@
               </span> 
             </div>
             <div class = "post_text">
-              <%= raw (l.full_text).gsub("\n", "<br>") %>
+              <%= raw l.full_text %>
               <% unless l.uploads.empty? %>
                 <div class = "post_uploads">
                   <%= render partial: "uploads/thumb_gallery", locals:  {uploads: l.uploads, post: l} %>

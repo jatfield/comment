@@ -22,7 +22,10 @@
       </span> 
     </div>
     <div class = "post_text">
-      <%= raw (p.full_text).gsub("\n", "<br>") %>
+      <div class = "voter_list" >
+        <div id = <%="post_voter_list_#{p.id}"%>></div>
+      </div> 
+      <%= raw p.full_text %>
       <% unless p.uploads.empty? %>
         <div class = "post_uploads">
           <%= render partial: "uploads/thumb_gallery", locals:  {uploads: p.uploads, post: p} %>
@@ -34,11 +37,8 @@
     </p>
     <% if p.answer_to %>
       <div class = "answer_post">
-        <p class = "post_answer_to">
-          <%= "Válasz erre: #{p.answer_to.user.username}, ##{p.answer_to.number}" if p.answer_to %>
-        </p>
-        <div class = "post_chain">
-          <%= render partial: "posts/chain_post", collection: p.question_chain, cached: true %>
+          <%= link_to_if(p.answer_to, "Válasz erre: #{p.answer_to.user.username}, ##{p.answer_to.number}", post_chain_posts_path(post_id: p.id), class: "post_answer_to" , remote: true){}%>
+        <div id = <%= "post_chain_#{p.id}" %> class = "post_chain" >
         </div>
       </div>
     <% end %>

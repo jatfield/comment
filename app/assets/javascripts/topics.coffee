@@ -3,9 +3,6 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 `$(document).ready(function(){
-  $(".answer_post").click(function(){
-    $("> .post_chain", this).toggle();  
-  });       
   $(".post_answer_link").click(function(){
     $("input[id='answer_to']").remove(); 
     console.log("Rákattintottál, he!");   

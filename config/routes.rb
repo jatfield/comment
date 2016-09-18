@@ -3,7 +3,12 @@ Rails.application.routes.draw do
   resources :avatars, only: [:new, :create, :edit, :update, :destroy]
   resources :uploads, only: [:index, :destroy]
   resources :votes, only: [:create]
-  resources :posts, only: [:index, :create, :edit, :update, :destroy]
+  resources :posts, only: [:index, :create, :edit, :update, :destroy] do
+    collection do
+      get "voter_list"
+      get "post_chain"
+    end
+  end
   resources :topics do
     resources :posts 
   end

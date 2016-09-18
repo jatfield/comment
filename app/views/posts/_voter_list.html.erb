@@ -1,0 +1,4 @@
+<b><%= vote_type %></b><br />
+<% votes_by_user.each do |u, v| %>
+  <%= u.username %>: <%= v.size %>
+<% end %>

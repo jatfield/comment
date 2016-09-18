@@ -12,7 +12,7 @@
         <%= day_beforize(p.created_at) %>
       </span> 
       <span class = "post_answer"> 
-        <%= link_to "Válasz", "#", title: "#{p.id}", class: "post_answer_link" %>
+        <%= link_to "Válasz", "#post_form_container", title: "#{p.id}", class: "post_answer_link" %>
       </span> 
       <span class = "post_votes" id = <%="post_votes_#{p.id}"%>> 
         <%= render partial: "posts/vote_box", locals:  {p: p}%>
@@ -22,7 +22,7 @@
       </span> 
     </div>
     <div class = "post_text">
-      <%= raw p.full_text %>
+      <%= simple_format(p.full_text, {}, sanitize: false) %>
       <% unless p.uploads.empty? %>
         <div class = "post_uploads">
           <%= render partial: "uploads/thumb_gallery", locals:  {uploads: p.uploads, post: p} %>

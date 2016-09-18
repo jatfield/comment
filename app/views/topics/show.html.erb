@@ -4,7 +4,7 @@
   </p>
   <%= render "level_forecast" %>
 </div>
-<div class = "post_form_container">
+<div id = "post_form_container">
   <%= form_tag topic_posts_path(@topic), method: 'post', multipart: true do %>
     <% if @topic.errors.any? %>
       <div id="error_explanation">

@@ -9,8 +9,7 @@
   $(".post_answer_link").click(function(){
     $("input[id='answer_to']").remove(); 
     console.log("Rákattintottál, he!");   
-    $(".post_form_container > form").append('<input type="hidden" name="answer_to" id="answer_to" value='+$(this).attr("title")+'>');  
+    $("#post_form_container > form").append('<input type="hidden" name="answer_to" id="answer_to" value='+$(this).attr("title")+'>');  
     tinyMCE.activeEditor.focus();
-    $('html,body').animate({scrollTop: 0});
   });       
 });`

@@ -134,7 +134,7 @@ table.level_forecast th {
   padding: 0.5em 0;
 }
 
-.post_form_container {
+#post_form_container {
 
   width: 100%;
   max-width: 800px;
@@ -142,7 +142,7 @@ table.level_forecast th {
   background-color: #7893c5;
 }
 
-.post_form_container p {
+#post_form_container p {
 
   text-align: center;
   color: white;
@@ -150,20 +150,20 @@ table.level_forecast th {
   font-weight: bolder;
 }
 
-.post_form_container input[type=submit] {
+#post_form_container input[type=submit] {
 
   margin-left: 45%;
 
 }
 
-.post_form_container textarea {
+#post_form_container textarea {
 
   width: 96%;
   margin: 2%;
   resize: vertical;
 }
 
-.post_form_container input[type=file] {
+#post_form_container input[type=file] {
 
   font-size: 80%;
 

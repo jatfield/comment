@@ -18,7 +18,7 @@
     </span> 
   </div>
   <div class = "post_text">
-    <%= raw chain_post.full_text %>
+    <%= simple_format(chain_post.full_text, {}, sanitize: false) %>
     <% unless chain_post.uploads.empty? %>
       <div class = "post_uploads">
         <%= render partial: "uploads/thumb_gallery", locals:  {uploads: chain_post.uploads, post: chain_post} %>

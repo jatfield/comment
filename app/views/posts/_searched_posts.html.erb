@@ -22,7 +22,7 @@
       </span> 
     </div>
     <div class = "post_text">
-      <%= raw p.full_text %>
+      <%= simple_format(p.full_text, {}, sanitize: false) %>
       <% unless p.uploads.empty? %>
         <div class = "post_uploads">
           <%= render partial: "uploads/thumb_gallery", locals:  {uploads: p.uploads, post: p} %>
@@ -58,7 +58,7 @@
               </span> 
             </div>
             <div class = "post_text">
-              <%= raw l.full_text %>
+              <%= simple_format(l.full_text, {}, sanitize: false) %>
               <% unless l.uploads.empty? %>
                 <div class = "post_uploads">
                   <%= render partial: "uploads/thumb_gallery", locals:  {uploads: l.uploads, post: l} %>

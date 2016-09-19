@@ -1,4 +1,7 @@
 <% @posts.each do |p| %>
+  <div class = "voter_list" >
+    <div id = <%="post_voter_list_#{p.id}"%>></div>
+  </div> 
   <div class="post">
     <div class="post_header">
       <span class = "post_user"> 
@@ -22,9 +25,6 @@
       </span> 
     </div>
     <div class = "post_text">
-      <div class = "voter_list" >
-        <div id = <%="post_voter_list_#{p.id}"%>></div>
-      </div> 
       <%= raw p.full_text %>
       <% unless p.uploads.empty? %>
         <div class = "post_uploads">

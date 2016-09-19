@@ -2,6 +2,12 @@ var target_voter_list = '<%= "#post_voter_list_#{@post.id}" %>';
 var previous_target_voter_list = '<%= @previous_target %>';
 var displayed = $('<%= "#post_voter_list_#{@post.id}" %>').css('display');
 $(previous_target_voter_list).hide()
-$(target_voter_list).html("<%= escape_javascript(render partial: "posts/voter_list", locals:  {vote_type: @vote_type, votes_by_user: @votes_by_user})%>");
-$(target_voter_list).toggle();
+if (displayed == "none"){
+  $(target_voter_list).html("<%= escape_javascript(render partial: "posts/voter_list", locals:  {vote_type: @vote_type, votes_by_user: @votes_by_user})%>");
+  $(target_voter_list).show();
+}
+else {
+  $(target_voter_list).hide();
+
+}
 console.log(displayed);

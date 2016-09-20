@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160906113023) do
+ActiveRecord::Schema.define(version: 20160920122826) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20160906113023) do
     t.integer  "answer_to_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.index "to_tsvector('hungarian'::regconfig, full_text)", name: "index_posts_on_full_text", using: :gin
     t.index ["answer_to_id"], name: "index_posts_on_answer_to_id", using: :btree
     t.index ["topic_id"], name: "index_posts_on_topic_id", using: :btree
     t.index ["user_id"], name: "index_posts_on_user_id", using: :btree

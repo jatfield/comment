@@ -24,6 +24,12 @@ body {
 
 }
 
+body.wait *, body.wait {
+
+  cursor: progress !important;
+
+}
+
 textarea, input {
 
 

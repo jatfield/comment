@@ -174,7 +174,7 @@ img.avatar a {
 .post_text img {
 
   max-width: 120%;
-
+  object-fit: contain;
 }
 
 p.archived_comment {

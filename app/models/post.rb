@@ -24,8 +24,7 @@ class Post < ApplicationRecord
   end
 
   def self.search(search_term)
- 
-    search_term.blank? ? all : where("to_tsvector ('hungarian', full_text) @@ to_tsquery ('hungarian', ?)", "#{search_term}").order(created_at: :desc)
+    search_term.blank? ? all : where("to_tsvector ('hungarian', full_text) @@ to_tsquery ('hungarian', ?)", "#{search_term.split.join(" & ")}").order(created_at: :desc)
 
   end
 

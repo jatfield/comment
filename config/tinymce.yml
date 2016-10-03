@@ -1,5 +1,5 @@
 toolbar:
-  - bold italic underline strikethrough blockquote | undo redo | paste link image media
+  - bold italic underline strikethrough blockquote code removeformat | undo redo | paste link image media
 plugins:
   - link
   - paste

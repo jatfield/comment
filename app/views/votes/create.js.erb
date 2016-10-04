@@ -1,2 +1,4 @@
-var target = '<%= "#post_votes_#{@post.id}" %>'
-$(target).html("<%= escape_javascript(render partial: "posts/vote_box", locals:  {p: @post})%>");
+var target_vote_counter = '<%= "#post_votes_#{@post.id}" %>'
+$(target_vote_counter).html("<%= escape_javascript(render partial: "posts/vote_box", locals:  {p: @post})%>");
+var target_voter_list = '<%= "#post_voter_list_#{@post.id}" %>';
+$(target_voter_list).html("<%= escape_javascript(render partial: "posts/voter_list", locals:  {upvotes_by_user: @upvotes_by_user, downvotes_by_user: @downvotes_by_user})%>");

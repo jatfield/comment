@@ -145,11 +145,15 @@ img.avatar a {
   display: none;
   position: absolute;
   top: 1.5em;
-  right: 0;
-  width: 300px;
+  right: 10%;
   border: 3px solid #7893c5;
   background-color: white;
 
+}
+
+.voter_list td {
+
+  padding: 0 1em;
 }
 
 .post_text {

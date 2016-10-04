@@ -75,13 +75,8 @@ class PostsController < ApplicationController
   def voter_list
     @post = Post.find(params[:post_id])
     @previous_target = session[:previous_target] unless session[:previous_target] =="#post_voter_list_#{@post.id}"
-    if params[:downvote] 
-      @votes_by_user = @post.downvotes.includes(:user).group_by { |p| p.user } if @post.downvotes
-      @vote_type = "Dikk!"
-    else
-      @votes_by_user = @post.upvotes.includes(:user).group_by { |p| p.user } if @post.upvotes
-      @vote_type = "Jee!"
-    end
+    @downvotes_by_user = @post.downvotes.includes(:user).group_by { |p| p.user } if @post.downvotes
+    @upvotes_by_user = @post.upvotes.includes(:user).group_by { |p| p.user } if @post.upvotes
     respond_to do |format|
       format.js {}
     end

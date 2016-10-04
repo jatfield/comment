@@ -1,4 +1,14 @@
-<b><%= vote_type %></b><br />
-<% votes_by_user.each do |u, v| %>
-  <%= u.username %>: <%= v.size %>
-<% end %>
+<table>
+  <tr>
+    <td><%= link_to "▲ Jeee", votes_path(vote:{user_id: current_user.id, post_id: @post.id}), method: "post", title: "Jee", :remote => true %></td>
+    <% upvotes_by_user.each do |u, v| %>
+      <td><%= u.username %>: <%= v.size %></td>
+    <% end %>
+  </tr>
+  <tr>
+    <td><%= link_to "▼ Dikk", votes_path(vote:{user_id: current_user.id, post_id: @post.id, downvote: true}), method: "post", title: "Dikk", :remote => true %></td>
+    <% downvotes_by_user.each do |u, v| %>
+      <td><%= u.username %>: <%= v.size %></td>
+    <% end %>
+  </tr>
+</table>

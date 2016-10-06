@@ -1,14 +1,12 @@
-<table>
-  <tr>
-    <td><%= link_to "▲ Jeee", votes_path(vote:{user_id: current_user.id, post_id: @post.id}), method: "post", title: "Jee", :remote => true %></td>
+  <ul>
+    <li class = "voter_list_header"><%= link_to "▲ Jeee", votes_path(vote:{user_id: current_user.id, post_id: @post.id}), method: "post", title: "Jee", :remote => true %></li>
     <% upvotes_by_user.each do |u, v| %>
-      <td><%= u.username %>: <%= v.size %></td>
+      <li><%= u.username %>: <%= v.size %></li>
     <% end %>
-  </tr>
-  <tr>
-    <td><%= link_to "▼ Dikk", votes_path(vote:{user_id: current_user.id, post_id: @post.id, downvote: true}), method: "post", title: "Dikk", :remote => true %></td>
+  </ul>
+  <ul>
+    <li class = "voter_list_header"><%= link_to "▼ Dikk", votes_path(vote:{user_id: current_user.id, post_id: @post.id, downvote: true}), method: "post", title: "Dikk", :remote => true %></li>
     <% downvotes_by_user.each do |u, v| %>
-      <td><%= u.username %>: <%= v.size %></td>
+      <li><%= u.username %>: <%= v.size %></li>
     <% end %>
-  </tr>
-</table>
+  </ul>

@@ -133,6 +133,7 @@ img.avatar a {
   vertical-align: top;
 
 }
+
 .voter_list {
 
   position: relative;
@@ -144,16 +145,36 @@ img.avatar a {
 
   display: none;
   position: absolute;
+  width: 20em;
   top: 1.5em;
-  right: 10%;
+  right: 0;
   border: 3px solid #7893c5;
   background-color: white;
 
 }
 
-.voter_list td {
+.voter_list ul {
 
-  padding: 0 1em;
+  list-style-type: none;
+  width: 50%;
+  float: left;
+  margin: 0;
+  padding: 0;
+
+}
+
+.voter_list ul li {
+
+  border: 1px solid black;
+  padding: 0.2em;
+
+}
+
+.voter_list_header {
+
+  background-color: #7893c5;
+  color: white; 
+  text-align: center;
 }
 
 .post_text {

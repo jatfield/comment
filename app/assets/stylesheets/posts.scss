@@ -134,6 +134,13 @@ img.avatar a {
 
 }
 
+.post_votes a {
+
+  width: 100;
+  display: block;
+  text-align: center;
+}
+
 .voter_list {
 
   position: relative;
@@ -145,9 +152,9 @@ img.avatar a {
 
   display: none;
   position: absolute;
-  width: 20em;
+  width: 15em;
   top: 1.5em;
-  right: 0;
+  right: 1.5em;
   border: 3px solid #7893c5;
   background-color: white;
 
@@ -160,12 +167,12 @@ img.avatar a {
   float: left;
   margin: 0;
   padding: 0;
-
+  font-size: 80%;
 }
 
 .voter_list ul li {
 
-  border: 1px solid black;
+  border-bottom: 1px solid black;
   padding: 0.2em;
 
 }
@@ -175,6 +182,15 @@ img.avatar a {
   background-color: #7893c5;
   color: white; 
   text-align: center;
+
+}
+
+.voter_list_header a:link {
+
+  display: block;
+  width: 100%;
+  color: white; 
+  font-weight: bolder;
 }
 
 .post_text {

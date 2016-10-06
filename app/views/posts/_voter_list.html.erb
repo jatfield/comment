@@ -1,11 +1,11 @@
   <ul>
-    <li class = "voter_list_header"><%= link_to "▲ Jeee", votes_path(vote:{user_id: current_user.id, post_id: @post.id}), method: "post", title: "Jee", :remote => true %></li>
+    <li class = "voter_list_header"><%= link_to "▲ Jeee!", votes_path(vote:{user_id: current_user.id, post_id: @post.id}), method: "post", :remote => true %></li>
     <% upvotes_by_user.each do |u, v| %>
       <li><%= u.username %>: <%= v.size %></li>
     <% end %>
   </ul>
   <ul>
-    <li class = "voter_list_header"><%= link_to "▼ Dikk", votes_path(vote:{user_id: current_user.id, post_id: @post.id, downvote: true}), method: "post", title: "Dikk", :remote => true %></li>
+    <li class = "voter_list_header"><%= link_to "Dikk! ▼", votes_path(vote:{user_id: current_user.id, post_id: @post.id, downvote: true}), method: "post", :remote => true %></li>
     <% downvotes_by_user.each do |u, v| %>
       <li><%= u.username %>: <%= v.size %></li>
     <% end %>

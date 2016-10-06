@@ -23,6 +23,7 @@
       <span class = "post_number"> 
         #<%= p.number %><%= link_to_if(is_admin? || current_user == p.user, image_tag("edit.png", class: "button"), edit_post_path(p)){} %>
       </span> 
+      <%= "!" if p.updated_at.advance(seconds: 5) >= @topic.updated_at %>
     </div>
     <div class = "post_text">
       <%= raw p.full_text %>

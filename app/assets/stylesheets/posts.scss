@@ -152,7 +152,8 @@ img.avatar a {
 
   display: none;
   position: absolute;
-  width: 15em;
+  z-index: 1;
+  width: 17em;
   top: 1.5em;
   right: 1.5em;
   border: 3px solid #7893c5;
@@ -172,7 +173,6 @@ img.avatar a {
 
 .voter_list ul li {
 
-  border-bottom: 1px solid black;
   padding: 0.2em;
 
 }

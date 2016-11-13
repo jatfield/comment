@@ -1,0 +1,2 @@
+class PostsPerPage < ApplicationRecord
+end

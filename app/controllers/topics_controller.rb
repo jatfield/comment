@@ -10,14 +10,12 @@ class TopicsController < ApplicationController
   # GET /topics/1
   # GET /topics/1.json
   def show
-    session[:visited_topics][@topic.id] = Time.now
+    current_user.topic_visits.create(topic_id: @topic.id)
     load_forecast if @topic.id == 40
     @page_title = @topic.name
     params[:page] ||= 1
-    session[:posts_per_page] ||= 40
     page = params[:page]
-    posts_per_page = session[:posts_per_page]
-    @posts = @topic.posts.order(number: :desc).page(page).per(posts_per_page).includes({user: :avatar}, :answer_to, :uploads, :upvotes, :downvotes)
+    @posts = @topic.posts.order(number: :desc).page(page).per(@posts_per_page).includes({user: :avatar}, :answer_to, :uploads, :upvotes, :downvotes)
   end
 
   # GET /topics/new

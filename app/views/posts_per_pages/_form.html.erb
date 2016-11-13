@@ -1,0 +1,22 @@
+<%= form_for(posts_per_page) do |f| %>
+  <% if posts_per_page.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(posts_per_page.errors.count, "error") %> prohibited this posts_per_page from being saved:</h2>
+
+      <ul>
+      <% posts_per_page.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :value %>
+    <%= f.number_field :value %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

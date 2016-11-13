@@ -12,6 +12,8 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @font_sizes = FontSize.all
+    @posts_per_page_values = PostsPerPage.all
   end
 
   # GET /users/new
@@ -108,11 +110,11 @@ class UsersController < ApplicationController
 
   def set_custom_vars
 
-    if params[:font_size]
-      session[:font_size] = params[:font_size]
+    if params[:font_size_id]
+      current_user.update(font_size_id: params[:font_size_id])
     end
-    if params[:posts_per_page]
-      session[:posts_per_page] = params[:posts_per_page]
+    if params[:posts_per_page_id]
+      current_user.update(posts_per_page_id: params[:posts_per_page_id])
     end
     redirect_to current_user
   end
@@ -128,6 +130,6 @@ class UsersController < ApplicationController
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:email, :username, :name, :active, :password, :password_confirmation, :signature)
+      params.require(:user).permit(:email, :username, :name, :active, :password, :password_confirmation, :signature, :font_size_id, :posts_per_page_id)
     end
 end

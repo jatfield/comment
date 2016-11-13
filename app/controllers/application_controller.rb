@@ -27,8 +27,8 @@ private
   
   def set_session_defaults
 
-    @font_size = session[:font_size] || "120%"
-    session[:visited_topics] ||= {}
+    current_user.font_size ? @font_size = "#{current_user.font_size.value.to_s}%" : @font_size = "120%"
+    current_user.posts_per_page ? @posts_per_page = current_user.posts_per_page.value : @posts_per_page = 40
 
   end
 

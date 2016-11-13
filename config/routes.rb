@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :posts_per_pages
+  resources :font_sizes
   resources :avatars, only: [:new, :create, :edit, :update, :destroy]
   resources :uploads, only: [:index, :destroy]
   resources :votes, only: [:create]

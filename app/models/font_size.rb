@@ -1,0 +1,2 @@
+class FontSize < ApplicationRecord
+end

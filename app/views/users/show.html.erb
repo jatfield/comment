@@ -74,16 +74,17 @@
 <% if current_user == @user %>
  
 <p>
-  <strong>Fontméret:</strong><br/> 
-    <%= link_to_unless(session[:font_size] == "70%", "Vamzeré", set_custom_vars_users_path(font_size: "70%")) %> ● <%= link_to_unless(session[:font_size] == "90%", "Vamzeré + 20%", set_custom_vars_users_path(font_size: "90%")) %> ● <%= link_to_unless(session[:font_size] == "110%", "Vamzeré + 40%", set_custom_vars_users_path(font_size: "110%")) %> ● <%= link_to_unless(session[:font_size] == "120%", "Normál", set_custom_vars_users_path(font_size: "120%")) %><br/>
+  <strong>Fontméret:</strong><br/>
+    <% @font_sizes.each do |fs| %> 
+      <%= link_to_unless(@font_size == "#{fs.value}%", fs.name, set_custom_vars_users_path(font_size_id: fs.id)) %> ●
+    <% end %>
 </p>
 
 <p>
   <strong>Hozzászólások/oldal:</strong> 
-  <%= form_tag set_custom_vars_users_path, method: "get" do %>
-    <%= number_field_tag(:posts_per_page, session[:posts_per_page] || 40, in: 10...100, step: 10) %>
-    <%= submit_tag "Mehet" %>
-  <% end %> 
+    <% @posts_per_page_values.each do |ppps| %> 
+      <%= link_to_unless(@posts_per_page == ppps.value, ppps.value, set_custom_vars_users_path(posts_per_page_id: ppps.id)) %> ●
+    <% end %>
 </p>
 
 <% end %>

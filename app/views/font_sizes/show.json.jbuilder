@@ -1,0 +1,1 @@
+json.partial! "font_sizes/font_size", font_size: @font_size

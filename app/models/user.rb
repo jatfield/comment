@@ -16,6 +16,9 @@ class User < ApplicationRecord
   has_one :avatar
   has_many :topics
   has_many :uploads
+  has_many :topic_visits
+  belongs_to :font_size
+  belongs_to :posts_per_page
 
   validates :email, :username, presence: true, uniqueness: true
 

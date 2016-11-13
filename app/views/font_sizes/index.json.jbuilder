@@ -1,0 +1,1 @@
+json.array! @font_sizes, partial: 'font_sizes/font_size', as: :font_size

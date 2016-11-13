@@ -1,0 +1,2 @@
+module PostsPerPagesHelper
+end

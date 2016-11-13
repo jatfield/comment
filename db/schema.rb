@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160920122826) do
+ActiveRecord::Schema.define(version: 20161113085957) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,13 @@ ActiveRecord::Schema.define(version: 20160920122826) do
     t.index ["user_id"], name: "index_avatars_on_user_id", using: :btree
   end
 
+  create_table "font_sizes", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "posts", force: :cascade do |t|
     t.text     "full_text"
     t.integer  "user_id"
@@ -38,6 +45,21 @@ ActiveRecord::Schema.define(version: 20160920122826) do
     t.index ["answer_to_id"], name: "index_posts_on_answer_to_id", using: :btree
     t.index ["topic_id"], name: "index_posts_on_topic_id", using: :btree
     t.index ["user_id"], name: "index_posts_on_user_id", using: :btree
+  end
+
+  create_table "posts_per_pages", force: :cascade do |t|
+    t.integer  "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "topic_visits", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "topic_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["topic_id"], name: "index_topic_visits_on_topic_id", using: :btree
+    t.index ["user_id"], name: "index_topic_visits_on_user_id", using: :btree
   end
 
   create_table "topics", force: :cascade do |t|
@@ -80,6 +102,10 @@ ActiveRecord::Schema.define(version: 20160920122826) do
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
     t.text     "signature"
+    t.integer  "font_size_id"
+    t.integer  "posts_per_page_id"
+    t.index ["font_size_id"], name: "index_users_on_font_size_id", using: :btree
+    t.index ["posts_per_page_id"], name: "index_users_on_posts_per_page_id", using: :btree
   end
 
   create_table "votes", force: :cascade do |t|
@@ -96,9 +122,13 @@ ActiveRecord::Schema.define(version: 20160920122826) do
   add_foreign_key "avatars", "users"
   add_foreign_key "posts", "topics"
   add_foreign_key "posts", "users"
+  add_foreign_key "topic_visits", "topics"
+  add_foreign_key "topic_visits", "users"
   add_foreign_key "topics", "users"
   add_foreign_key "uploads", "posts"
   add_foreign_key "uploads", "users"
+  add_foreign_key "users", "font_sizes"
+  add_foreign_key "users", "posts_per_pages"
   add_foreign_key "votes", "posts"
   add_foreign_key "votes", "users"
 end

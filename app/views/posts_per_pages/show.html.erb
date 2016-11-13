@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @posts_per_page.value %>
+</p>
+
+<%= link_to 'Edit', edit_posts_per_page_path(@posts_per_page) %> |
+<%= link_to 'Back', posts_per_pages_path %>

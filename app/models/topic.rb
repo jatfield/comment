@@ -4,6 +4,7 @@ class Topic < ApplicationRecord
   has_many :posts
   has_one :last_post, -> {order 'number desc'}, class_name: "Post"
   validates :name, presence: true
+  has_many :topic_visits
 
   def cached_last_post
 
@@ -23,6 +24,12 @@ class Topic < ApplicationRecord
       posts.size  
 
     end
+  end
+
+  def recent_visit(user)
+
+    self.topic_visits.order(:created_at).where(user_id: user).last
+
   end
 
 end

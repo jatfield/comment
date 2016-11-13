@@ -108,12 +108,19 @@ hu:
       avatar: "Avatar"
       user: "Felhasználó"
       post: "Hozzászólás"
+      font_size: "Betűméret"
+      posts_per_page: "Oldalankénti hozzászólásszám"
     attributes:
+      avatar:
+        picture: "Kép"
+      font_size:
+        name: "Megnevezés"
+        value: "Érték"
+      posts_per_page:
+        value: "Érték" 
       topic:
         name: "Cím"
         description: "Leírás"
-      avatar:
-        picture: "Kép"
       user:
         username: "Felhasználónév"
         name: "Név"

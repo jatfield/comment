@@ -1,7 +1,7 @@
 <%= form_for(posts_per_page) do |f| %>
   <% if posts_per_page.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(posts_per_page.errors.count, "error") %> prohibited this posts_per_page from being saved:</h2>
+      <h2><%= posts_per_page.errors.count) %> hiba miatt nem menthető:</h2>
 
       <ul>
       <% posts_per_page.errors.full_messages.each do |message| %>
@@ -17,6 +17,6 @@
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Mentés" %>
   </div>
 <% end %>

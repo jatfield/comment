@@ -1,4 +1,4 @@
-<div class = "<%= TopicVisit.recent_visits(current_user.id, topic.id) && TopicVisit.recent_visits(current_user.id, topic.id).created_at >= topic.updated_at ? "visited_topic" : "unvisited_topic" %>">
+<div class = "<%= topic.recent_visit(current_user.id) && topic.recent_visit(current_user.id).created_at >= topic.updated_at ? "visited_topic" : "unvisited_topic" %>">
   <span class = "topic_title">
     <%= link_to topic.name, topic %>
     <%= link_to_if(is_admin?, image_tag("edit.png", class: "button"), edit_topic_path(topic), target: '_blank'){} %>

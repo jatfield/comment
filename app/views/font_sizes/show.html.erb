@@ -1,14 +1,12 @@
-<p id="notice"><%= notice %></p>
-
 <p>
-  <strong>Name:</strong>
+  <strong>Megnevezés:</strong>
   <%= @font_size.name %>
 </p>
 
 <p>
-  <strong>Value:</strong>
+  <strong>Érték:</strong>
   <%= @font_size.value %>
 </p>
 
-<%= link_to 'Edit', edit_font_size_path(@font_size) %> |
-<%= link_to 'Back', font_sizes_path %>
+<%= link_to 'Szerkesztés', edit_font_size_path(@font_size) %> |
+<%= link_to 'Lista', font_sizes_path %>

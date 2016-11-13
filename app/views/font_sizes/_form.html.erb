@@ -1,7 +1,7 @@
 <%= form_for(font_size) do |f| %>
   <% if font_size.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(font_size.errors.count, "error") %> prohibited this font_size from being saved:</h2>
+      <h2><%= font_size.errors.count %> hiba miatt nem menthető:</h2>
 
       <ul>
       <% font_size.errors.full_messages.each do |message| %>
@@ -22,6 +22,6 @@
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Mentés" %>
   </div>
 <% end %>

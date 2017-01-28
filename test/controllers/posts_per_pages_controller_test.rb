@@ -2,7 +2,8 @@ require 'test_helper'
 
 class PostsPerPagesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @posts_per_page = posts_per_pages(:one)
+    global_setup
+    @posts_per_page = create(:posts_per_page)
   end
 
   test "should get index" do
@@ -16,8 +17,9 @@ class PostsPerPagesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create posts_per_page" do
+    @posts_per_page2 = build(:posts_per_page)
     assert_difference('PostsPerPage.count') do
-      post posts_per_pages_url, params: { posts_per_page: { value: @posts_per_page.value } }
+      post posts_per_pages_url, params: { posts_per_page: { value: @posts_per_page2.value } }
     end
 
     assert_redirected_to posts_per_page_url(PostsPerPage.last)

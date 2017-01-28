@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :posts_per_page do
-    value 1
+    sequence(:value) { |n| n }
   end
 end

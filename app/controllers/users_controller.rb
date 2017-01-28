@@ -12,8 +12,8 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @font_sizes = FontSize.all.order(:name)
-    @posts_per_page_values = PostsPerPage.all.order(:value)
+    @font_sizes = FontSize.all.order(value: :desc)
+    @posts_per_page_values = PostsPerPage.all.order(value: :desc)
   end
 
   # GET /users/new

@@ -2,7 +2,8 @@ require 'test_helper'
 
 class FontSizesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @font_size = font_sizes(:one)
+    global_setup
+    @font_size = create(:font_size)
   end
 
   test "should get index" do
@@ -16,8 +17,9 @@ class FontSizesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create font_size" do
+    @font_size2 = build(:font_size)
     assert_difference('FontSize.count') do
-      post font_sizes_url, params: { font_size: { name: @font_size.name, value: @font_size.value } }
+      post font_sizes_url, params: { font_size: { name: @font_size2.name, value: @font_size2.value } }
     end
 
     assert_redirected_to font_size_url(FontSize.last)

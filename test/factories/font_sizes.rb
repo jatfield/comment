@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :font_size do
-    name "MyString"
-    value 1
+    sequence(:value) { |n| n }
+    sequence(:name) { |n| "Font size #{n}" }
   end
 end

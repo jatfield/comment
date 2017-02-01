@@ -8,7 +8,7 @@ class VotesController < ApplicationController
       if @vote.save
         @downvotes_by_user = @post.downvotes.includes(:user).group_by { |p| p.user } if @post.downvotes
         @upvotes_by_user = @post.upvotes.includes(:user).group_by { |p| p.user } if @post.upvotes
-        session[:visited_topics][@post.topic.id] = Time.now
+        current_user.topic_visits.create(topic_id: @post.topic.id)
         format.html { redirect_back(fallback_location: root_path) }
         format.json { render :show, status: :created, location: @vote }
         format.js {}

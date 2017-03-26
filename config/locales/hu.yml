@@ -19,6 +19,7 @@ hu:
     formats:
       default: "%Y. %b %d., %H:%M"
       short: "%b %e., %H:%M"
+      topiclist: "%B %e., %H:%M"
       long: "%Y. %B %e., %A, %H:%M"
     am: "de."
     pm: "du."
@@ -29,38 +30,38 @@ hu:
       less_than_x_seconds:
 #        zero: 'kevesebb, mint 1 másodperc'
         one: 'kevesebb, mint 1 másodperc'
-        other: 'kevesebb, mint {{count}} másodperc'
+        other: 'kevesebb, mint %{count} másodperc'
       x_seconds:
         one: '1 másodperc'
-        other: '{{count}} másodperc'
+        other: '%{count} másodperc'
       less_than_x_minutes:
 #        zero: 'kevesebb, mint 1 perc'
         one: 'kevesebb, mint 1 perc'
-        other: 'kevesebb, mint {{count}} perc'
+        other: 'kevesebb, mint %{count} perc'
       x_minutes:
         one: '1 perc'
-        other: '{{count}} perc'
+        other: '%{count} perc'
       about_x_hours:
         one: 'kb 1 óra'
-        other: 'kb {{count}} óra'
+        other: 'kb %{count} óra'
       x_days:
         one: '1 nap'
-        other: '{{count}} nap'
+        other: '%{count} nap'
       about_x_months:
         one: 'kb 1 hónap'
-        other: 'kb {{count}} hónap'
+        other: 'kb %{count} hónap'
       x_months:
         one: '1 hónap'
-        other: '{{count}} hónap'
+        other: '%{count} hónap'
       about_x_years:
         one: 'kb 1 év'
-        other: 'kb {{count}} év'
+        other: 'kb %{count} év'
       over_x_years:
         one: 'több, mint 1 év'
-        other: 'több, mint {{count}} év'
+        other: 'több, mint %{count} év'
       almost_x_years:
         one:   "majdnem 1 év"
-        other: "majdnem {{count}} év"
+        other: "majdnem %{count} év"
     prompts:
       year:   "Év"
       month:  "Hónap"
@@ -137,8 +138,8 @@ hu:
     errors:
       template:
         header:
-          one: "Hibás {{model}}!"
-          other: "Hibás {{model}}!"
+          one: "Hibás %{model}!"
+          other: "Hibás %{model%}!"
         body: ""
       messages:
         inclusion: "nincs a listában!"
@@ -148,19 +149,19 @@ hu:
         accepted: "nincs elfogadva!"
         empty: "nincs megadva!"
         blank: "nincs megadva!"
-        too_long: "túl hosszú (nem lehet több {{count}} karakternél)"
-        too_short: "túl rövid (legalább {{count}} karakter szükséges)"
-        wrong_length: "nem megfelelő hosszúságú ({{count}} karakter szükséges)"
+        too_long: "túl hosszú (nem lehet több %{count} karakternél)"
+        too_short: "túl rövid (legalább %{count} karakter szükséges)"
+        wrong_length: "nem megfelelő hosszúságú (%{count} karakter szükséges)"
         taken: "már foglalt!"
         not_a_number: "nem szám"
-        greater_than: "nagyobbnak kell lennie, mint {{count}}"
-        greater_than_or_equal_to: "legalább {{count}} szükséges"
-        equal_to: "pontosan {{count}} szükséges"
-        less_than: "kevesebb, mint {{count}} szükséges"
-        less_than_or_equal_to: "legfeljebb {{count}} lehet"
+        greater_than: "nagyobbnak kell lennie, mint %{count}"
+        greater_than_or_equal_to: "legalább %{count} szükséges"
+        equal_to: "pontosan %{count} szükséges"
+        less_than: "kevesebb, mint %{count} szükséges"
+        less_than_or_equal_to: "legfeljebb %{count} lehet"
         odd: "páratlannak kell lennie"
         even: "párosnak kell lennie"
-        record_invalid: "Sikertelen validálás {{errors}}"
+        record_invalid: "Sikertelen validálás %{errors}"
   support:
     array:
 #      sentence_connector: "és"

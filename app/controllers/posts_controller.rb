@@ -4,15 +4,14 @@ class PostsController < ApplicationController
   # GET /posts
   def index
     params[:page] ||= 1
-    session[:posts_per_page] ||= 40
     page = params[:page]
     if params[:user_id]
       @user = User.find(params[:user_id])
-      @posts = @user.posts.order(created_at: :desc).page(page).per(40).includes(:user, :answer_to, :topic)
+      @posts = @user.posts.order(created_at: :desc).page(page).per(@posts_per_page).includes(:user, :answer_to, :topic)
     elsif params[:search_term]
-      @posts = Post.search(params[:search_term]).page(page).per(40).includes(:user, :answer_to, :topic)
+      @posts = Post.search(params[:search_term]).page(page).per(@posts_per_page).includes(:user, :answer_to, :topic)
     else
-      @posts = Post.order(created_at: :desc).page(page).per(40).includes(:user, :answer_to, :topic)
+      @posts = Post.order(created_at: :desc).page(page).per(@posts_per_page).includes(:user, :answer_to, :topic)
  
     end
   

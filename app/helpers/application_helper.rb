@@ -9,6 +9,8 @@ module ApplicationHelper
       "Tegnap, #{time.strftime('%H:%M')}"
     elsif time.to_date === Date.today.advance(days: -2)
       "Tegnapelőtt, #{time.strftime('%H:%M')}"
+    elsif time.year == Time.now.year
+      l time, format: :topiclist
     else
       l time
     end

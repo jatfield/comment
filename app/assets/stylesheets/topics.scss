@@ -158,9 +158,11 @@ table.level_forecast th {
 
 #post_form_container textarea {
 
+  display: block;
   width: 96%;
   margin: 2%;
   resize: vertical;
+  height: 7em;
 }
 
 #post_form_container input[type=file] {

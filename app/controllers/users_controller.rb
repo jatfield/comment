@@ -4,8 +4,11 @@ class UsersController < ApplicationController
   skip_before_action :require_login, only: [:forgotten_password, :send_password_reset_link, :reset_password]
   # GET /users
   def index
+    params[:page] ||= 1
+    page = params[:page]
+    @users = User.all.order("last_request_at DESC NULLS LAST", active: :desc, username: :asc).page(page).per(15)
     @page_title = "Userlista"
-    @users = User.all.order("last_request_at DESC NULLS LAST", active: :desc, username: :asc)
+    
   end
 
   # GET /users/1

@@ -19,8 +19,15 @@
     <% end %>
     <p>Hozzászólás:</p>
     <%= hidden_field_tag :user_id, current_user.id %>  
-    <%= text_area_tag :full_text, nil, class: "tinymce", rows: 4 %>
-    <%= tinymce unless session[:is_mobile] %>
+    <% if session[:is_mobile] %>
+      <%= text_area_tag :full_text, nil, id: "full_text--mobile" %>
+      <div id = "mobile_tools">
+
+      </div>
+    <% else %>
+      <%= text_area_tag :full_text, nil, class: "tinymce", rows: 4 %>
+      <%= tinymce %>
+    <% end %>
     <%= file_field_tag "images[]", multiple: true, accept: ".jpg,.jpeg,.gif" %><br/>
     <%= submit_tag 'Mehet!', :name => nil %>
   <% end %>

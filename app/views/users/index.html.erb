@@ -3,15 +3,6 @@
     <tr>
       <th>Felhasználónév</th>
       <th>Név</th>
-      <% if is_admin? %>
-        <th>E-mail</th>
-        <th>Aktív?</th>
-        <th>Bejelentkezések száma</th>
-        <th>Aktuális bejelentkezés</th>
-        <th>Utolsó bejelentkezés</th>
-        <th>Jelenlegi IP</th>
-        <th>Utolsó IP</th>
-      <% end %>
       <th>Itt járt</th>
       <th>Hozzászólások</th>
       <th>Feltöltések</th>
@@ -23,15 +14,6 @@
       <tr>
         <td><%= link_to user.username, user %></td>
         <td><%= user.name %></td>
-        <% if is_admin? %>
-          <td><%= user.email %></td>
-          <td><%= user.active %></td>
-          <td><%= user.login_count %></td>
-          <td><%= day_beforize(user.current_login_at) %></td>
-          <td><%= day_beforize(user.last_login_at) %></td>
-          <td><%= user.current_login_ip %></td>
-          <td><%= user.last_login_ip %></td>
-        <% end %>
         <td><%= day_beforize(user.last_request_at) %></td>
         <td><%= link_to "#{user.posts.size} hozzászólás", posts_path(user_id: user.id) %></td>
         <td><%= link_to "#{user.uploads.size} feltöltés", uploads_path(user_id: user.id) %></td>
@@ -39,4 +21,4 @@
     <% end %>
   </tbody>
 </table>
-
+<%= paginate @users %>

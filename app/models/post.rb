@@ -13,19 +13,24 @@ class Post < ApplicationRecord
 
   def question_chain
 
-    chain = []
-    post = self
-    while post.answer_to do
-      chain << post.answer_to
-      post = post.answer_to
-    end
-    return chain
+     get_chain(self)
 
   end
 
   def self.search(search_term)
+
     search_term.blank? ? all : where("to_tsvector ('hungarian', full_text) @@ to_tsquery ('hungarian', ?)", "#{search_term.split.join(" & ")}").order(created_at: :desc)
 
+  end
+
+  private
+
+  def get_chain(post, chain = [])
+
+    return chain unless post.answer_to
+    chain << post.answer_to
+    get_chain(post.answer_to, chain)
+  
   end
 
 end

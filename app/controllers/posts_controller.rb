@@ -2,7 +2,6 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # GET /posts
-  # GET /posts.json
   def index
     params[:page] ||= 1
     session[:posts_per_page] ||= 40
@@ -19,15 +18,11 @@ class PostsController < ApplicationController
   
   end
 
-  # GET /posts/1
-  # GET /posts/1.json
-
   # GET /posts/1/edit
   def edit
   end
 
   # POST /posts
-  # POST /posts.json
   def create
     @topic = Topic.find(params[:topic_id])
     @user = User.find(params[:user_id])
@@ -40,24 +35,19 @@ class PostsController < ApplicationController
           params[:images].each {|i| @post.uploads.create(file: i, user: @post.user)}
         end
         format.html { redirect_to @topic }
-        format.json { render :show, status: :created, location: @post }
       else
         format.html { redirect_to @topic }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # PATCH/PUT /posts/1
-  # PATCH/PUT /posts/1.json
   def update
     respond_to do |format|
-      if @post.update(post_params.except!(:user_id))
+      if @post.update(post_params.except(:user_id))
         format.html { redirect_to @post.topic, notice: 'Hozzászólás módosítva.' }
-        format.json { render :show, status: :ok, location: @post }
       else
         format.html { render :edit }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -68,7 +58,6 @@ class PostsController < ApplicationController
     @post.destroy
     respond_to do |format|
       format.html { redirect_to posts_url, notice: 'Hozzászólás törölve.' }
-      format.json { head :no_content }
     end
   end
 

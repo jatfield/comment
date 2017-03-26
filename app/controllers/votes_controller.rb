@@ -1,6 +1,5 @@
 class VotesController < ApplicationController
   # POST /votes
-  # POST /votes.json
   def create
     @vote = Vote.new(vote_params)
     @post = @vote.post
@@ -10,11 +9,9 @@ class VotesController < ApplicationController
         @upvotes_by_user = @post.upvotes.includes(:user).group_by { |p| p.user } if @post.upvotes
         current_user.topic_visits.create(topic_id: @post.topic.id)
         format.html { redirect_back(fallback_location: root_path) }
-        format.json { render :show, status: :created, location: @vote }
         format.js {}
       else
         format.html { render :new }
-        format.json { render json: @vote.errors, status: :unprocessable_entity }
       end
     end
   end

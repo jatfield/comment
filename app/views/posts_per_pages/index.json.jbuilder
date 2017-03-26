@@ -1,1 +1,0 @@
-json.array! @posts_per_pages, partial: 'posts_per_pages/posts_per_page', as: :posts_per_page

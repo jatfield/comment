@@ -8,7 +8,6 @@ class TopicsController < ApplicationController
   end
 
   # GET /topics/1
-  # GET /topics/1.json
   def show
     current_user.topic_visits.create(topic_id: @topic.id)
     load_forecast if @topic.id == 40
@@ -28,42 +27,34 @@ class TopicsController < ApplicationController
   end
 
   # POST /topics
-  # POST /topics.json
   def create
     @topic = Topic.new(topic_params)
 
     respond_to do |format|
       if @topic.save
         format.html { redirect_to @topic, notice: 'Téma elmentve.' }
-        format.json { render :show, status: :created, location: @topic }
       else
         format.html { render :new }
-        format.json { render json: @topic.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # PATCH/PUT /topics/1
-  # PATCH/PUT /topics/1.json
   def update
     respond_to do |format|
-      if @topic.update(topic_params.except!(:user_id))
+      if @topic.update(topic_params.except(:user_id))
         format.html { redirect_to @topic, notice: 'Téma módosítva.' }
-        format.json { render :show, status: :ok, location: @topic }
       else
         format.html { render :edit }
-        format.json { render json: @topic.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # DELETE /topics/1
-  # DELETE /topics/1.json
   def destroy
     @topic.destroy
     respond_to do |format|
       format.html { redirect_to topics_url, notice: 'Téma törölve.' }
-      format.json { head :no_content }
     end
   end
 

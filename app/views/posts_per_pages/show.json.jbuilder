@@ -1,1 +1,0 @@
-json.partial! "posts_per_pages/posts_per_page", posts_per_page: @posts_per_page

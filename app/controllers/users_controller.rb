@@ -3,14 +3,12 @@ class UsersController < ApplicationController
   before_action :set_perishable_token_expiry, only: [:reset_password, :send_password_reset_link]
   skip_before_action :require_login, only: [:forgotten_password, :send_password_reset_link, :reset_password]
   # GET /users
-  # GET /users.json
   def index
     @page_title = "Userlista"
     @users = User.all.order("last_request_at DESC NULLS LAST", active: :desc, username: :asc)
   end
 
   # GET /users/1
-  # GET /users/1.json
   def show
     @font_sizes = FontSize.all.order(value: :desc)
     @posts_per_page_values = PostsPerPage.all.order(value: :desc)
@@ -26,43 +24,35 @@ class UsersController < ApplicationController
   end
 
   # POST /users
-  # POST /users.json
   def create
     @user = User.new(user_params)
     @user.username.strip!
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'Felhasználó elmentve.' }
-        format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # PATCH/PUT /users/1
-  # PATCH/PUT /users/1.json
   def update
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'Felhasználó módosítva.' }
-        format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # DELETE /users/1
-  # DELETE /users/1.json
   def destroy
     @user.update_attributes(active: false)
 #    @user.destroy
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'Felhasználó inaktív.' }
-      format.json { head :no_content }
     end
   end
 

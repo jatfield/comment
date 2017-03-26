@@ -2,7 +2,6 @@ class UploadsController < ApplicationController
   before_action :set_upload, only: [:destroy]
 
   # GET /uploads
-  # GET /uploads.json
   def index
     if params[:user_id]
       @uploads_by_post = User.find(params[:user_id]).uploads.group_by { |u| u.post }
@@ -15,12 +14,10 @@ class UploadsController < ApplicationController
 
 
   # DELETE /uploads/1
-  # DELETE /uploads/1.json
   def destroy
     @upload.destroy
     respond_to do |format|
       format.html { redirect_back(fallback_location: root_path, notice: 'File törölve.')}
-      format.json { head :no_content }
     end
   end
 

@@ -22,13 +22,14 @@
     <% if session[:is_mobile] %>
       <%= text_area_tag :full_text, nil, id: "full_text--mobile" %>
       <div id = "mobile_tools">
-
+        <button type = "button" id = "mobile_insert_link">Linkbeszúrás</button><button type = "button" id ="mobile_insert_picture">Képbeszúrás</button>
       </div>
     <% else %>
       <%= text_area_tag :full_text, nil, class: "tinymce", rows: 4 %>
       <%= tinymce %>
     <% end %>
-    <%= file_field_tag "images[]", multiple: true, accept: ".jpg,.jpeg,.gif" %><br/>
+    <button type = "button" id ="upload_images">Képfeltöltés</button>
+    <%= file_field_tag "images[]", multiple: true, accept: ".jpg,.jpeg,.gif,.png", id: "upload_images_field" %><br/>
     <%= submit_tag 'Mehet!', :name => nil %>
   <% end %>
 </div>

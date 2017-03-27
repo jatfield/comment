@@ -30,7 +30,7 @@ body.wait *, body.wait {
 
 }
 
-textarea, input {
+textarea, input, button {
 
 
   font-family: Arial, Helvetica, sans-serif;
@@ -62,6 +62,37 @@ th {
   border-bottom: 2px solid black;
   text-align: center;
   font-weight: bolder;
+
+}
+
+h1, h2, h3, h4 {
+
+  padding: 0.1em;
+
+}
+
+h1 {
+
+ font-size: 120%;
+
+}
+
+h2, h3 {
+
+ font-size: 110%;
+
+}
+
+strong, label, h1, h2, h3 {
+
+  font-weight: bold;
+
+}
+
+label {
+
+  display: block;
+  padding: 0.2em;
 
 }
 

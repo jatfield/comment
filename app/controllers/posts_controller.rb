@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  include ActionView::Helpers::TextHelper #so simple_format works to convert mobile text
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # GET /posts
@@ -26,6 +27,7 @@ class PostsController < ApplicationController
     @topic = Topic.find(params[:topic_id])
     @user = User.find(params[:user_id])
     @topic.last_post ? number = @topic.last_post.number + 1 : number = 1
+    params[:full_text] = simple_format(params[:full_text]) if session[:is_mobile]
     @post = Post.new(full_text: params[:full_text], answer_to_id: params[:answer_to], number: number, topic: @topic, user: @user)
 
     respond_to do |format|

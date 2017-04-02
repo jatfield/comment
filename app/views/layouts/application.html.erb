@@ -11,9 +11,12 @@
   <body style = <%="font-size:#{@font_size};"%>>
     <div id = "header">
       <div id = "top_menu">
-        <p class = "centered">
-          <%= link_to "szólj hozzá", root_path, class:"menu" %><span class="page_title"></span>  <span class="page_title"><%= ">> #{@page_title}" if @page_title %></span>
-        </p>
+        <span class="page_title">
+          <%= link_to "szólj hozzá", root_path, class:"menu" %>
+        </span>
+        <span class="page_title">
+          <%= ">> #{@page_title}" if @page_title %>
+        </span>
       </div>
     </div>
     <div id = "main">

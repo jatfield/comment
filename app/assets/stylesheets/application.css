@@ -295,8 +295,8 @@ a:active.menu {
 
   color: white;
   text-shadow: 0.1em 0.1em #000000;
-  display: inline-block;
   height: 100%;
+
 }
 
 .form_container {

@@ -12,7 +12,7 @@
     var link = prompt("Link?"); 
     var linkText = prompt("Szöveg?"); 
     if (linkText) {
-      var linkWithText = '<a href = "' + link + '" target="_new">' + linkText + '</a>'
+      var linkWithText = '<a href = "' + link + '" target="_blank">' + linkText + '</a>'
       $("#full_text--mobile").val($('#full_text--mobile').val()+linkWithText); 
     };
     $("#full_text--mobile").focus();

@@ -23,6 +23,7 @@ Rails.application.routes.draw do
       get "forgotten_password" 
       get "admin_up" 
       get "set_custom_vars" 
+      get "more"
     end
   end
 

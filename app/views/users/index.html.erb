@@ -1,4 +1,4 @@
-<table>
+<table id = "users_table">
   <thead>
     <tr>
       <th>Felhasználónév</th>
@@ -8,17 +8,5 @@
       <th>Feltöltések</th>
     </tr>
   </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= link_to user.username, user %></td>
-        <td><%= user.name %></td>
-        <td><%= day_beforize(user.last_request_at) %></td>
-        <td><%= link_to "#{user.posts.size} hozzászólás", posts_path(user_id: user.id) %></td>
-        <td><%= link_to "#{user.uploads.size} feltöltés", uploads_path(user_id: user.id) %></td>
-      </tr>
-    <% end %>
-  </tbody>
+  <%= render partial: "user", collection: @users %>
 </table>
-<%= paginate @users %>

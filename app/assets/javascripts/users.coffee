@@ -6,7 +6,7 @@
   var currentOffset = 40;
   var loaded = true;
   var maxOffset = parseInt($("#users_table").data('size')) + 40;
-  $(document).ajaxCompvare(function() {
+  $(document).ajaxComplete(function() {
     loaded = true;
   });
   const getMore = function(){

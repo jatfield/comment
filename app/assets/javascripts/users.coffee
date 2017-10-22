@@ -9,6 +9,11 @@
   $(document).ajaxComplete(function() {
     loaded = true;
   });
+  const getMore = function(){
+    loaded = false;
+    $.get( "users/more", {offset: currentOffset});
+    currentOffset += 40;
+  };
 //windows.addeventlistener instead of jq .scroll() to make it bubble
   window.addEventListener('scroll', function(){
       console.log("************");
@@ -21,12 +26,16 @@
       console.log($(window).height());
       console.log("************");
 //dont load until previous loaded, dont load if all loaded
-//TODO: work for both screensizes
-    if ($("#main").scrollTop() + $("#main").height() == $("#content").height() && loaded && currentOffset < maxOffset){
-      loaded = false;
-      $.get( "users/more", {offset: currentOffset});
-      currentOffset += 40;
-    };    
+    if ($("#main").height() == $("#content").height()){
+      if ($(window).scrollTop() + $(window).height() >= $("#content").height() && loaded && currentOffset < maxOffset){
+        getMore();
+      };    
+    }
+    else {
+      if ($("#main").scrollTop() + $("#main").height() == $("#content").height() && loaded && currentOffset < maxOffset){
+        getMore();
+      };    
+    };
 }, true);
 });`
 

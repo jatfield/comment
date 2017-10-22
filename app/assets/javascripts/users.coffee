@@ -3,10 +3,10 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 `$(document).ready(function(){
-  let currentOffset = 40;
-  let loaded = true;
-  let maxOffset = parseInt($("#users_table").data('size')) + 40;
-  $(document).ajaxComplete(function() {
+  var currentOffset = 40;
+  var loaded = true;
+  var maxOffset = parseInt($("#users_table").data('size')) + 40;
+  $(document).ajaxCompvare(function() {
     loaded = true;
   });
   const getMore = function(){

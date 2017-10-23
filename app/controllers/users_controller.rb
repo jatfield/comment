@@ -6,14 +6,14 @@ class UsersController < ApplicationController
   def index
 #    params[:page] ||= 1
 #    page = params[:page]
-    @users = User.all.order("last_request_at DESC NULLS LAST", active: :desc, username: :asc).limit(40)
+    @users = User.all.order("last_request_at DESC NULLS LAST", active: :desc, username: :asc).limit(20)
 #page(page).per(15)
     @page_title = "Userlista"
     
   end
 
   def more
-    @more_users = User.all.order("last_request_at DESC NULLS LAST", active: :desc, username: :asc).limit(40).offset(params[:offset].to_i)
+    @more_users = User.all.order("last_request_at DESC NULLS LAST", active: :desc, username: :asc).limit(20).offset(params[:offset].to_i)
     respond_to do |format|
       format.js {}
     end

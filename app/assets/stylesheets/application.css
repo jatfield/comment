@@ -181,7 +181,7 @@ blockquote {
   height: 3em;  
   background-color: #7893c5;
   border-bottom: 0.1em solid black;
-
+  overflow: hidden;
 }
 
 #header_link {

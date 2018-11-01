@@ -19,7 +19,7 @@
     <% end %>
     <p>Hozzászólás:</p>
     <%= hidden_field_tag :user_id, current_user.id %>  
-    <% if session[:is_mobile] %>
+    <% if session[:is_old_android] %>
       <%= text_area_tag :full_text, nil, id: "full_text--mobile" %>
       <div id = "mobile_tools">
         <button type = "button" id = "mobile_insert_link">Linkbeszúrás</button><button type = "button" id ="mobile_insert_picture">Képbeszúrás</button>

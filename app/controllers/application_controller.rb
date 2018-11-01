@@ -34,8 +34,9 @@ private
 
   def detect_mobile
 
-    request.user_agent =~ /android|blackberry|iphone|ipad|ipod|iemobile|mobile|webos/i ? session[:is_mobile] = true : session[:is_mobile] = false
-
+    #request.user_agent =~ /android|blackberry|iphone|ipad|ipod|iemobile|mobile|webos/i ? session[:is_mobile] = true : session[:is_mobile] = false
+    android_version = request.user_agent.match(/Android [\d+\.]{3,5}/) ? request.user_agent.match(/Android [\d+\.]{3,5}/)[0].delete('Android ').split('.')[0].to_i : false
+    session[:is_old_android] = android_version && android_version < 4 ? true : false
   end
 
 

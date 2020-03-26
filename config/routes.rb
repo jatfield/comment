@@ -1,11 +1,7 @@
 Rails.application.routes.draw do
 
   resources :posts_per_pages
-  resources :stats, only: [:index], :defaults => { :format => 'json' } do
-    collection do
-      get "posts" 
-    end
-  end
+  resources :stats, only: [:index]
   resources :font_sizes
   resources :avatars, only: [:new, :create, :edit, :update, :destroy]
   resources :uploads, only: [:index, :destroy]

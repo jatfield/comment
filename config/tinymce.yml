@@ -10,8 +10,6 @@ menubar: false
 statusbar: false
 language: "hu_HU"
 entity_encoding : "raw"
-max_width : 800
-min_width : 300
 default_link_target: "_blank"
 image_description: false
 media_poster: false

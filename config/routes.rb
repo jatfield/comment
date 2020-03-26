@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :font_sizes
   resources :avatars, only: [:new, :create, :edit, :update, :destroy]
   resources :uploads, only: [:index, :destroy]
+  resources :stats, only: [:index]
   resources :votes, only: [:create]
   resources :posts, only: [:index, :create, :edit, :update, :destroy] do
     collection do

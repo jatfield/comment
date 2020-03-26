@@ -1,7 +1,8 @@
 class User < ApplicationRecord
  
   acts_as_authentic do |c|
-    c.validate_login_field = false
+#    c.validate_login_field = false
+c.crypto_provider = ::Authlogic::CryptoProviders::SCrypt
     c.logged_in_timeout = 12.hours
   end
 

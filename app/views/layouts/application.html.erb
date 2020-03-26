@@ -31,6 +31,7 @@
         <% if current_user %>
           <li><%= link_to "#{current_user.username} adatlapja", current_user, class:"menu" %></li>
           <li><%= link_to "Többiek", users_path, class:"menu" %></li>
+          <li><%= link_to "Stat", stats_path, class:"menu" %></li>
           <li><%= link_to "Kijelentkezés", sign_out_path, method: :delete, class:"menu" %></li>
           <li><%= is_admin? ? link_to("Admin ki", admin_up_users_path, class:"menu") : link_to("Admin be", admin_up_users_path, class:"menu") %></li>
           <li> 

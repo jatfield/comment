@@ -1,0 +1,19 @@
+<table>
+  <thead>
+    <tr>
+      <th colspan=2><%= link_to "<", stats_path(from: @from - 1.months, to: @to - 1.months) %><%= l @from  %> - <%= l @to %><%= link_to ">", stats_path(from: @from + 1.months, to: @to + 1.months) %></th>
+    </tr>
+    <tr>
+      <th>User</th>
+      <th>Hozzászólások</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @count.each do |k, v| %>
+      <tr>
+        <td><%= k %></td>
+        <td><%= v %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

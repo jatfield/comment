@@ -1,5 +1,6 @@
 $(document).ready(function(){
-var container = document.getElementById('chart');
+var container = document.getElementById('stats_chart');
+if (container) {
 var series_data = Object.entries(JSON.parse(container.dataset.series))
 console.log(series_data);
 var series = [];
@@ -55,4 +56,5 @@ var data = {
     // options.theme = 'myTheme';
 
     tui.chart.barChart(container, data, options);
+}
 });

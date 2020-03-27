@@ -5,8 +5,8 @@
         <th colspan=2><%= link_to "<", stats_path(from: @from - 1.months, to: @to - 1.months) %> <%= l @from, format: :dateonly  %> - <%= l @to, format: :dateonly %> <%= link_to ">", stats_path(from: @from + 1.months, to: @to + 1.months) %></th>
       </tr>
       <tr>
-        <th>User</th>
-        <th>Hozzászólások</th>
+        <th><%= link_to "User", stats_path(from: @from, to: @to, order: "user") %> </th>
+        <th><%= link_to "Hozzászólások", stats_path(from: @from, to: @to, order: "posts") %></th>
       </tr>
     </thead>
     <tbody>
@@ -16,7 +16,12 @@
           <td><%= v %></td>
         </tr>
       <% end %>
+        <tr>
+          <td>Összes</td>
+          <td><%= @sum_count %></td>
+        </tr>
     </tbody>
   </table>
 </div>
-<%= content_tag(:div,"", id: "stats_chart", data: {series: @count, sum: @sum_count}) %>
+<%= content_tag(:div,"", id: "stats_barchart", data: {series: @count, sum: @sum_count}) %>
+<%= content_tag(:div,"", id: "stats_linechart", data: {series: @post_count}) %>

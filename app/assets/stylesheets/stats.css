@@ -1,11 +1,17 @@
 #stats_table {
   width: 100%;
 }
+
 #stats_table table {
   width: 75%;
   margin: 0 auto;
 
 }
+
 #chart {
   width: 100%;
+}
+
+.tui-chart {
+  margin: 0 auto;
 }

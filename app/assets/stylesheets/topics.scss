@@ -162,10 +162,12 @@ table.level_forecast th {
   width: 96%;
   margin: 2%;
   resize: vertical;
-  height: 7em;
+  height: 4em;
 
 }
-
+.mce-edit-area iframe {
+    min-height: 10em;
+}
 #post_form_container input[type=file] {
 
   font-size: 80%;

@@ -25,7 +25,7 @@
         <button type = "button" id = "mobile_insert_link">Linkbeszúrás</button><button type = "button" id ="mobile_insert_picture">Képbeszúrás</button>
       </div>
     <% else %>
-      <%= text_area_tag :full_text, nil, class: "tinymce", rows: 40 %>
+      <%= text_area_tag :full_text, nil, rows: 40, class: "tinymce" %>
       <%= tinymce %>
     <% end %>
     <button type = "button" id ="upload_images">Képfeltöltés</button>

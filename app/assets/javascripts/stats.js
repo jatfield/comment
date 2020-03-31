@@ -4,7 +4,6 @@ var lineContainer = document.getElementById('stats_linechart');
 if (barContainer) {
 var series_data = Object.entries(JSON.parse(barContainer.dataset.series))
 var line_series_data = Object.entries(JSON.parse(lineContainer.dataset.series))
-console.log(line_series_data);
 var barSeries = [];
 var max = 0;
 for (var i = 0; i < series_data.length; i++) {
@@ -12,7 +11,6 @@ for (var i = 0; i < series_data.length; i++) {
   barSeries.push({name: series_data[i][0], data: [series_data[i][1]]})
   max = series_data[i][1] > max ? series_data[i][1] : max
 }
-console.log(barSeries);
 var data = {
     series: barSeries
     };
@@ -57,13 +55,14 @@ var data = {
 }
 if (lineContainer) {
 var line_series_data = Object.entries(JSON.parse(lineContainer.dataset.series))
-console.log(line_series_data);
 var lineSeries = [{name: 'Hozzászólások', data: []}];
 var max = 0;
 for (var i = 0; i < line_series_data.length; i++) {
-  lineSeries[0].data.push(line_series_data[i][1].post_count)
+  lineSeries[0].data.push(line_series_data[i][1].post_count);
 }
-console.log(lineSeries);
+for (var i = lineSeries[0].data.length; i < 12; i++) {
+  lineSeries[0].data.push(0);
+}
 var data = {
     categories: ['Január', 'Február', 'Március', 'Április', 'Május', 'Június', 'Július', 'Augusztus', 'Szeptember', 'Október', 'November', 'December'],
     series: lineSeries

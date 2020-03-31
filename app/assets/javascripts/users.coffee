@@ -37,14 +37,14 @@
 
 //windows.addeventlistener instead of jq .scroll() to make it bubble
   window.addEventListener('scroll', function(){
-      console.log("************");
-      console.log($("#main").scrollTop());
-      console.log($("#main").height());
-      console.log($("#content").scrollTop());
-      console.log($("#content").height());
-      console.log($(window).scrollTop());
-      console.log($(window).height());
-      console.log("************");
+//      console.log("************");
+//      console.log($("#main").scrollTop());
+//      console.log($("#main").height());
+//     console.log($("#content").scrollTop());
+//      console.log($("#content").height());
+//      console.log($(window).scrollTop());
+//      console.log($(window).height());
+//      console.log("************");
 //dont load until previous loaded, dont load if all loaded
     if ($("#main").height() == $("#content").height()){
       if ($(window).scrollTop() + $(window).height() >= $("#content").height() && loaded && currentOffset < maxOffset){
